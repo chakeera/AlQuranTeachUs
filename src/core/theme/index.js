@@ -1,18 +1,21 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  shape: {
+    borderRadius: 15
+  },
   palette: {
     primary: {
-      main: "#45503B",
-      cream: "#FAEDCD",
-      whitewash: "#FEFAE0",
-      brown: "#D4A373",
-      lightgreen: "#CCD5AE",
+      main: '#CCD5AE',
+      dark: '#45503B',
+      light: '#FAEDCD'
     },
     secondary: {
-      main: "#CCD5AE",
-    },
-  },
+      main: '#D4A373',
+      light: '#FEFAE0',
+      dark: '#FAEDCD'
+    }
+  }
 });
 
 export default theme;
