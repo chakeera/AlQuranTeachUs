@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../Page/Home.js';
-import Admin from '../Page/Admin.js';
+import Home from '../pages/Home.js';
+import Admin from '../pages/Admin.js';
 
 const router = () => (
   <BrowserRouter>
