@@ -1,12 +1,13 @@
-import { AppBar, Container, Toolbar, Typography, Box, Card } from '@mui/material';
+import { AppBar, Container, Toolbar, Typography, Box } from '@mui/material';
 import React from 'react';
 import theme from '../core/theme';
 import Logo from '../assets/images/logo.svg';
 import Slideshow from '../components/BannerSlide';
+import TopBox from '../components/TopThreeBox';
 
 const Home = () => (
   <>
-    <AppBar style={{ background: theme.palette.primary.main }}>
+    <AppBar position="static" fixed style={{ background: theme.palette.primary.main }}>
       <Container>
         <Toolbar>
           <Box
@@ -28,18 +29,7 @@ const Home = () => (
       </Container>
     </AppBar>
     <Slideshow></Slideshow>
-    <Container>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ fontWeight: 'bold', mt: 2, display: { xs: 'flex', md: 'flex' } }}>
-        {' '}
-        ข้อเตือนใจจากอัลกุรอาน
-      </Typography>
-      <Box color={theme.palette.primary.dark}>
-        <Card></Card>
-      </Box>
-    </Container>
+    <TopBox></TopBox>
   </>
 );
 
