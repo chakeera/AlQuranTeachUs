@@ -4,10 +4,11 @@ import theme from '../core/theme';
 import Logo from '../assets/images/logo.svg';
 import Slideshow from '../components/BannerSlide';
 import TopBox from '../components/TopThreeBox';
+import CategoriesBox from '../components/CategoriesBox';
 
 const Home = () => (
   <>
-    <AppBar position="static" fixed style={{ background: theme.palette.primary.main }}>
+    <AppBar position="static" style={{ background: theme.palette.primary.dark }}>
       <Container>
         <Toolbar>
           <Box
@@ -30,6 +31,7 @@ const Home = () => (
     </AppBar>
     <Slideshow></Slideshow>
     <TopBox></TopBox>
+    <CategoriesBox></CategoriesBox>
   </>
 );
 

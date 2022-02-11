@@ -16,7 +16,7 @@ const TopBox = () => {
       <Box
         sx={{
           maxWidth: '100%',
-          background: theme.palette.primary.dark,
+          background: theme.palette.primary.main,
           display: { xs: 'flex', md: 'flex' }
         }}>
         <Stack
