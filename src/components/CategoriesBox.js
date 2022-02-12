@@ -4,6 +4,7 @@ import QuranPhoto from '../assets/images/quran.jpg';
 import TafseerPhoto from '../assets/images/tafseer.jpg';
 import DuaPhoto from '../assets/images/dua.jpeg';
 import KhutbahPhoto from '../assets/images/khutbah.jpg';
+import TalkPhoto from '../assets/images/talk.png';
 
 const CategoriesBox = () => {
   return (
@@ -28,24 +29,27 @@ const CategoriesBox = () => {
           </Grid>
           <Grid item xs={6} md={4}>
             <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" width="100" image={KhutbahPhoto} alt="Quran" />
+              <CardMedia component="img" width="100" image={KhutbahPhoto} alt="Khutbah" />
             </Card>
             <Typography align="center">คุตบะหวันศุกร์</Typography>
           </Grid>
           <Grid item xs={6} md={4}>
-            <Card sx={{ mb: 2, mt: 2 }}>
-              <CardMedia component="img" width="100" image={QuranPhoto} alt="Quran" />
+            <Card sx={{ mb: 1, mt: 2 }}>
+              <CardMedia component="img" width="100" image={TalkPhoto} alt="บรรยาย" />
             </Card>
+            <Typography align="center">บรรยาย</Typography>
           </Grid>
           <Grid item xs={6} md={4}>
-            <Card sx={{ mb: 2, mt: 2 }}>
+            <Card sx={{ mb: 1, mt: 2 }}>
               <CardMedia component="img" width="100" image={DuaPhoto} alt="Dua" />
             </Card>
+            <Typography align="center">ดุอาจากกุรอาน</Typography>
           </Grid>
           <Grid item xs={6} md={4}>
-            <Card sx={{ mb: 2, mt: 2 }}>
-              <CardMedia component="img" width="100" image={QuranPhoto} alt="Quran" />
+            <Card sx={{ mb: 1, mt: 2 }}>
+              <CardMedia component="img" width="100" alt="Download" />
             </Card>
+            <Typography align="center">คุตบะหวันศุกร์</Typography>
           </Grid>
         </Grid>
         <Grid item xs={6}>

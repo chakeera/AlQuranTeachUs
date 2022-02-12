@@ -1,7 +1,7 @@
 import { AppBar, Container, Toolbar, Typography, Box } from '@mui/material';
 import React from 'react';
 import theme from '../core/theme';
-import Logo from '../assets/images/logo.svg';
+import Logo from '../assets/images/logo.png';
 import Slideshow from '../components/BannerSlide';
 import TopBox from '../components/TopThreeBox';
 import CategoriesBox from '../components/CategoriesBox';
