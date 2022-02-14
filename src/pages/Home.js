@@ -5,6 +5,7 @@ import Logo from '../assets/images/logo.png';
 import Slideshow from '../components/BannerSlide';
 import TopBox from '../components/TopThreeBox';
 import CategoriesBox from '../components/CategoriesBox';
+import Footer from '../components/Footer';
 
 const Home = () => (
   <>
@@ -32,6 +33,7 @@ const Home = () => (
     <Slideshow></Slideshow>
     <TopBox></TopBox>
     <CategoriesBox></CategoriesBox>
+    <Footer></Footer>
   </>
 );
 
