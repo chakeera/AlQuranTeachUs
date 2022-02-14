@@ -37,14 +37,6 @@ const Footer = () => (
             </Grid>
           </Box>
         </Stack>
-
-        {/* <Typography
-          color="white"
-          variant="h5"
-          component="div"
-          sx={{ display: { xs: 'flex', md: 'flex' } }}>
-          อัลกุรอ่านสอนเรา อัลมุวาฮิด
-        </Typography> */}
       </Toolbar>
     </Container>
   </AppBar>
