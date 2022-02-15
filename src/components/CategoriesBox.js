@@ -9,7 +9,7 @@ import FacebookPhoto from '../assets/images/facebook.jpeg';
 import YoutubePhoto from '../assets/images/youtube.jpg';
 import OtherPhoto from '../assets/images/other.png';
 import { Box } from '@mui/system';
-// import bg from '../assets/images/border.jpg';
+import header from '../assets/images/header.png';
 
 const CategoriesBox = () => {
   return (
@@ -19,7 +19,7 @@ const CategoriesBox = () => {
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
         spacing={{ xs: 2, md: 3 }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
+        <Grid container columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
           <Grid item xs={12} md={4}>
             <Card sx={{ mb: 1, mt: 2 }}>
               <CardMedia component="img" image={FridayPhoto} alt="Friday" />
@@ -58,20 +58,31 @@ const CategoriesBox = () => {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography sx={{ justifyContent: 'center', my: 2 }} variant="h5">
-            ปฏิทินอิสลาม
-          </Typography>
-          <Box
-            sx={{
-              my: 2
-            }}>
-            <CalendarComponent id="calendar" calendarMode="Islamic">
-              <Inject services={[Islamic]} />
-            </CalendarComponent>
-          </Box>
-          <Box sx={{ my: 2 }}>
-            <CalendarComponent id="calendar"></CalendarComponent>
-          </Box>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '100vh' }}>
+            <Grid item>
+              <Card sx={{ mx: 1, my: 1, maxWidth: 350 }}>
+                <CardMedia component="img" image={header} alt="header" />
+              </Card>
+            </Grid>
+            <Grid item>
+              <Box sx={{ my: 2 }}>
+                <CalendarComponent id="calendar" calendarMode="Islamic">
+                  <Inject services={[Islamic]} />
+                </CalendarComponent>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box sx={{ my: 2 }}>
+                <CalendarComponent id="calendar"></CalendarComponent>
+              </Box>
+            </Grid>
+          </Grid>
         </Grid>
       </Stack>
     </div>

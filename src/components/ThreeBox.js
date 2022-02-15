@@ -1,4 +1,3 @@
-// import { Typography, Box, Card, CardMedia, CardContent, Stack } from '@mui/material';
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
