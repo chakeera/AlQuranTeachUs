@@ -16,7 +16,10 @@ const Footer = () => (
           spacing={{ xs: 1, sm: 2, md: 50 }}>
           <Box>
             <Typography color="white" variant="h6">
-              อัลกุรอ่านสอนเรา อัลมุวาฮิด Al Quran Teach Us
+              อัลกุรอ่านสอนเรา อัลมุวาฮิด
+            </Typography>
+            <Typography color="white" variant="h6">
+              Al Quran Teach Us
             </Typography>
           </Box>
           <Box>

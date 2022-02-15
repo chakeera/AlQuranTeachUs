@@ -2,8 +2,8 @@ import { AppBar, Container, Toolbar, Typography, Box } from '@mui/material';
 import React from 'react';
 import theme from '../core/theme';
 import Logo from '../assets/images/logo.png';
-import Slideshow from '../components/BannerSlide';
-import TopBox from '../components/TopThreeBox';
+import Slideshow from '../components/CarouselBanner';
+import TopBox from '../components/ThreeBox';
 import CategoriesBox from '../components/CategoriesBox';
 import Footer from '../components/Footer';
 
