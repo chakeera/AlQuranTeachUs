@@ -1,4 +1,4 @@
-import { Stack, Divider, Grid, Card, CardMedia, Typography } from '@mui/material';
+import { Stack, Divider, Grid, Card, CardMedia, Typography, Button } from '@mui/material';
 import React from 'react';
 import { CalendarComponent, Inject, Islamic } from '@syncfusion/ej2-react-calendars';
 import '../style/calendar.css';
@@ -18,42 +18,54 @@ const CategoriesBox = () => {
         sx={{ ml: 2 }}
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
-        spacing={{ xs: 2, md: 3 }}>
-        <Grid container columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
+        spacing={{ xs: 2, md: 2 }}>
+        <Grid container columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={FridayPhoto} alt="Friday" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={FridayPhoto} alt="Friday" />
+              </Card>
+            </Button>
             <Typography align="center">คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={TafseerPhoto} alt="Tafseer" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={TafseerPhoto} alt="Tafseer" />
+              </Card>
+            </Button>
             <Typography align="center">บรรยาย ตัฟซีรอัลกุรอาน</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={FacebookPhoto} alt="Khutbah" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={FacebookPhoto} alt="Khutbah" />
+              </Card>
+            </Button>
             <Typography align="center">Facebook ตัฟซีรอัลกุรอาน</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={YoutubePhoto} alt="บรรยาย" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={YoutubePhoto} alt="บรรยาย" />
+              </Card>
+            </Button>
             <Typography align="center">YouTube ตัฟซีรอัลกุรอาน</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={QuranPhoto} alt="Dua" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={QuranPhoto} alt="Dua" />
+              </Card>
+            </Button>
             <Typography align="center">หนังสืออัลกุรอาน & MP3 อัลกุรอานเพราะๆ</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ mb: 1, mt: 2 }}>
-              <CardMedia component="img" image={OtherPhoto} alt="Download" />
-            </Card>
+            <Button href="/Jummah">
+              <Card sx={{ mb: 1, mt: 2 }}>
+                <CardMedia component="img" image={OtherPhoto} alt="Download" />
+              </Card>
+            </Button>
             <Typography align="center">หลักฐานอื่นๆ</Typography>
           </Grid>
         </Grid>
@@ -71,14 +83,14 @@ const CategoriesBox = () => {
               </Card>
             </Grid>
             <Grid item>
-              <Box sx={{ my: 2 }}>
+              <Box sx={{ my: 1 }}>
                 <CalendarComponent id="calendar" calendarMode="Islamic">
                   <Inject services={[Islamic]} />
                 </CalendarComponent>
               </Box>
             </Grid>
             <Grid item>
-              <Box sx={{ my: 2 }}>
+              <Box>
                 <CalendarComponent id="calendar"></CalendarComponent>
               </Box>
             </Grid>

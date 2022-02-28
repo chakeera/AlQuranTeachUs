@@ -22,6 +22,7 @@ const TopBox = () => {
         }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4} md={4}>
+            <Typography>ไลฟ์สดคุตบะและบรรยาย</Typography>
             <Card sx={{ mx: 2, my: 2, maxWidth: 400 }}>
               <CardMedia component="img" alt="topbox1" image={SampleImage} />
               <CardContent>
@@ -35,10 +36,11 @@ const TopBox = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <Card sx={{ mx: 2, my: 2, maxWidth: 400, maxHeight: 270 }}>
+              {/* <iframe src="https://www.facebook.com/plugins/video.php?height=297&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=560&t=0" width="560" height="297" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> */}
               <iframe
-                width="400"
+                width="350"
                 height="270"
-                src="https://www.youtube.com/embed/OPPPrM179F4"
+                src="https://www.facebook.com/plugins/video.php?height=297&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=560&t=0"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

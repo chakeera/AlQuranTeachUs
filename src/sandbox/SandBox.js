@@ -13,18 +13,20 @@ import DB from '../firebase/index';
 import { useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import theme from '../core/theme';
-import SandBox2 from '../pages/SandBox2';
+import Dummy from './DummyBox';
+// import SandBox2 from '../pages/SandBox2';
 
 const Sandbox = () => {
   const [dataFromDb, setDataFromDb] = useState([{ name: 'Loading...', id: 'initial' }]);
 
   useEffect(
     () =>
-      onSnapshot(collection(DB, 'Folder1'), (snapshot) =>
+      onSnapshot(collection(DB, 'Hanafee'), (snapshot) =>
         setDataFromDb(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       ),
     []
   );
+
   return (
     <div>
       <Container>
@@ -37,11 +39,11 @@ const Sandbox = () => {
                   <FolderIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={data.name} secondary={data.link} />
+              <ListItemText primary={data.id} secondary={data.name} />
             </ListItem>
           ))}
         </List>
-        <SandBox2></SandBox2>
+        <Dummy></Dummy>
       </Container>
     </div>
   );

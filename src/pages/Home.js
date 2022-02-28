@@ -4,17 +4,17 @@ import TopBox from '../components/ThreeBox';
 import CategoriesBox from '../components/CategoriesBox';
 import Footer from '../components/Footer';
 import Appbar from '../components/Appbar';
-// import { Container } from '@mui/material';
+import { Container } from '@mui/material';
 // import theme from '../core/theme';
 
 const Home = () => (
   <>
     <Appbar></Appbar>
-    {/* <Container> */}
-    <Slideshow></Slideshow>
-    <TopBox></TopBox>
-    <CategoriesBox></CategoriesBox>
-    {/* </Container> */}
+    <Container>
+      <Slideshow></Slideshow>
+      <TopBox></TopBox>
+      <CategoriesBox></CategoriesBox>
+    </Container>
     <Footer></Footer>
   </>
 );

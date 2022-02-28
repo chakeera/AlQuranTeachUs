@@ -23,7 +23,7 @@ const Appbar = () => {
                 alt="Logo"
                 src={Logo}
               />
-              <Typography color="white" variant="h5" component="div">
+              <Typography sx={{ fontSize: 30 }} color="white" variant="h5" component="div">
                 อัลกุรอ่านสอนเรา อัลมุวาฮิด
               </Typography>
               <Box
