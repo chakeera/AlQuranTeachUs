@@ -21,8 +21,8 @@ const CategoriesBox = () => {
         spacing={{ xs: 2, md: 2 }}>
         <Grid container columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
           <Grid item xs={12} md={4}>
-            <Button href="/Jummah">
-              <Card sx={{ mb: 1, mt: 2 }}>
+            <Button sx={{ mb: 1, mt: 2 }} href="/Jummah">
+              <Card>
                 <CardMedia component="img" image={FridayPhoto} alt="Friday" />
               </Card>
             </Button>

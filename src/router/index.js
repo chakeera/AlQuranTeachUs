@@ -4,6 +4,7 @@ import Admin from '../pages/Admin.js';
 import SandBox from '../sandbox/SandBox.js';
 import JummahDummy from '../sandbox/DummyJummah.js';
 import Jummah from '../pages/Jummah.js';
+import CategoryMainPage from '../pages/CategoryMainPage.js';
 
 const router = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const router = () => (
       <Route path="/sandbox" element={<SandBox />} />
       <Route path="/hanafee" element={<JummahDummy />} />
       <Route path="/Jummah" element={<Jummah />} />
+      <Route path="/category" element={<CategoryMainPage />} />
     </Routes>
   </BrowserRouter>
 );

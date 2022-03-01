@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import theme from '../core/theme';
 import SampleImage from '../assets/images/banner.jpg';
+import '../style/iframe.css';
 
 const TopBox = () => {
   return (
@@ -23,12 +24,12 @@ const TopBox = () => {
               {' '}
               ข้อเตือนใจจากอัลกุรอาน
             </Typography>
-            <Card sx={{ mx: 2, my: 2, maxWidth: 350, maxheight: 270 }}>
+            <Card sx={{ mx: 2, my: 2, maxWidth: 350, height: { md: 270 }, maxHeight: { xs: 270 } }}>
               <CardMedia component="img" alt="topbox1" image={SampleImage} />
-              <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
+              <CardContent sx={{ display: 'flex' }}>
+                <Typography variant="h6">
                   เนื้อหาcontentของtopicนี้ใส่ได้ไม่เกิน5บรรทัดนี้ ใส่ได้ไม่เกิน5บรรทัดนี้
-                  ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดใส่ได้ไม่เกิน5บรรทัด
+                  ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดใส่
                 </Typography>
               </CardContent>
             </Card>
@@ -41,13 +42,13 @@ const TopBox = () => {
               {' '}
               ไลฟ์สดคุตบะห์และบรรยาย
             </Typography>
-            <Card sx={{ my: 2, maxWidth: 350, maxHeight: 270 }}>
+            <Card sx={{ my: 2, mx: 2, maxWidth: 350, maxHeight: 270 }}>
               <iframe
                 width="350"
                 height="270"
-                // src="https://www.facebook.com/plugins/video.php?height=297&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=560&t=0"
+                src="https://www.facebook.com/plugins/video.php?height=297&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=560&t=0"
                 // src="https://www.facebook.com/100005431126482/videos/1341159953062424/"
-                src="https://www.facebook.com/plugins/video.php?height=270&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=350&t=0"
+                // src="https://www.facebook.com/plugins/video.php?height=270&href=https%3A%2F%2Fwww.facebook.com%2Farleemsr%2Fvideos%2F1341159953062424%2F&show_text=false&width=350&t=0"
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 allowFullScreen={true}></iframe>
@@ -61,7 +62,7 @@ const TopBox = () => {
               {' '}
               ไลฟ์สด Makkah, Saudi Arabia
             </Typography>
-            <Card sx={{ my: 2, maxWidth: 350, maxHeight: 270 }}>
+            <Card sx={{ my: 2, mx: 2, maxWidth: 350, maxHeight: 270 }}>
               <iframe
                 width="350"
                 height="270"

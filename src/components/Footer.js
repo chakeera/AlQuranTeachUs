@@ -35,7 +35,9 @@ const Footer = () => (
                 </Typography>
               </Grid>
               <Grid item>
-                <Button variant="contained">ADMIN</Button>
+                <Button href="/admin" variant="contained">
+                  ADMIN
+                </Button>
                 <Button href="/sandbox" variant="contained">
                   SANDBOX
                 </Button>
