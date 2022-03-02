@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 import { Box, Button, Card, CardMedia, Container, Stack, Typography } from '@mui/material';
 import React from 'react';
 import Appbar from '../components/Appbar';
 
 const CategoryMainPage = () => {
   var data = [
-    { title: 'คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน', link: '/', image: 'friday.jpg' },
+    { title: 'คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน', link: '/editKhutbah', image: 'friday.jpg' },
     { title: 'บรรยาย ตัฟซีรอัลกุรอาน', link: '/', image: 'tafseer.jpg' },
     { title: 'Facebook ตัฟซีรอัลกุรอาน', link: '/', image: 'facebook.jpeg' },
     { title: 'YouTube ตัฟซีรอัลกุรอาน', link: '/', image: 'youtube.jpg' },
