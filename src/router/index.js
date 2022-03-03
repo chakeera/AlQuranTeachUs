@@ -6,6 +6,7 @@ import JummahDummy from '../sandbox/DummyJummah.js';
 import Jummah from '../pages/Jummah.js';
 import CategoryMainPage from '../pages/CategoryMainPage.js';
 import KhutbahCRUD from '../pages/KhutbahCRUD.js';
+import Manage from '../pages/Manage.js';
 
 const router = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const router = () => (
       <Route path="/Jummah" element={<Jummah />} />
       <Route path="/category" element={<CategoryMainPage />} />
       <Route path="/editKhutbah" element={<KhutbahCRUD />} />
+      <Route path="/manage" element={<Manage />} />
     </Routes>
   </BrowserRouter>
 );

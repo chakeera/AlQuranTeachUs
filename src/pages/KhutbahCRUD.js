@@ -1,6 +1,6 @@
 import { Box, Container, Tab, Tabs, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import AddData from '../components/AddData';
+import AddData from '../components/AddDataTest';
 import Appbar from '../components/Appbar';
 import theme from '../core/theme';
 import ShowData from '../components/ShowData';
@@ -10,9 +10,9 @@ const khutbahCRUD = () => {
   // const [FolderName, setFolderName] = useState('');
   const [tabIndex, setTabIndex] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setTabIndex(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setTabIndex(newValue);
+  // };
 
   return (
     <>
@@ -23,7 +23,7 @@ const khutbahCRUD = () => {
         </Typography>
         <Box sx={{ width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={tabIndex} onChange={handleChange} centered>
+            <Tabs value={tabIndex} onChange={(value) => setTabIndex(value)} centered>
               <Tab
                 label={
                   <span
