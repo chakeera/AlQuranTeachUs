@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import AddData from '../components/AddData';
 import Appbar from '../components/Appbar';
 import theme from '../core/theme';
+import ShowData from '../components/ShowData';
 
 const khutbahCRUD = () => {
   // const [Ajarn, setAjarn] = useState('Hanafee');
@@ -52,8 +53,8 @@ const khutbahCRUD = () => {
             </Tabs>
           </Box>
         </Box>
-        {tabIndex === 0 && <Typography>Display DATA, DELETE DATA</Typography>}
-        {tabIndex === 1 && <AddData typename="testo" />}
+        {tabIndex === 0 && <ShowData />}
+        {tabIndex === 1 && <AddData typename="01surah" />}
       </Container>
     </>
   );

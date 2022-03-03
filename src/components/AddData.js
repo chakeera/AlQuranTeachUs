@@ -24,10 +24,11 @@ const addDataFrom = (props) => {
   const [FolderName, setFolderName] = useState('');
   const [FileName, setFileName] = useState('');
   const [Link, setLink] = useState('');
-  const [Ajarn, setAjarn] = useState('Hanafee');
+  const [Ajarn, setAjarn] = useState('HanafeeKhutbah');
   const data = {
-    [FolderName]: {
-      [FileName]: Link
+    [FileName]: {
+      Name: FileName,
+      Link: Link
     }
   };
 
@@ -51,7 +52,7 @@ const addDataFrom = (props) => {
                 width: 250
               }}
               onChange={(event) => setAjarn(event.target.value)}>
-              <MenuItem value={'Hanafee'}>อ.ฮานาฟี</MenuItem>
+              <MenuItem value={'HanafeeKhutbah'}>อ.ฮานาฟี</MenuItem>
               <MenuItem value={'Ashabulyameen'}>อ.อัสฮาบุ้ลยามีน ปานนพภา</MenuItem>
               <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>
               <MenuItem value={'Other'}>อื่นๆ</MenuItem>
@@ -84,7 +85,7 @@ const addDataFrom = (props) => {
           <PlusIcon />
           ADD MORE FILE
         </Button>
-        <Button onClick={() => addData(Ajarn, 'testo', data)} variant="contained">
+        <Button onClick={() => addData(Ajarn, FolderName, data)} variant="contained">
           DONE
         </Button>
       </Container>
