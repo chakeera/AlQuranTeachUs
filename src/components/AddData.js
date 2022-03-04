@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Box,
   Button,
+  CircularProgress,
   FormControl,
   InputLabel,
   MenuItem,
@@ -11,26 +12,54 @@ import {
   Toolbar
 } from '@mui/material';
 import theme from '../core/theme';
-// import db from '../firebase';
-// import { doc, setDoc } from 'firebase/firestore';
+import db from '../firebase';
+import { doc, setDoc, updateDoc } from 'firebase/firestore';
 import PlusIcon from '@mui/icons-material/AddCircleOutline';
 
-// async function addData(collection, document, data) {
-//   // db.collection(collection).doc(document).set(data);
-//   const docRef = doc(db, collection, document);
-//   await setDoc(docRef, data).then(() => console.log('added'));
-// }
-
-const addData = () => {
+const addData = (props) => {
   const [Scholar, setScholar] = useState('');
   const [FolderName, setFolderName] = useState('');
+  const [NewFolderName, setNewFolderName] = useState('');
   const [FileName, setFileName] = useState('');
   const [Link, setLink] = useState('');
-  const [isClick, setIsClick] = useState(false);
+  const [isNewFolderClick, setIsNewFolderClick] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [Category, setCategory] = useState(props.typename);
+  const collection = Scholar + Category;
+  const data = {
+    [FileName]: {
+      Name: FileName,
+      Link: Link
+    }
+  };
 
-  const handleNewFolder = () => {
-    setIsClick(true);
-    setFolderName('');
+  const setData = async (collection, folder, newFolder) => {
+    console.log(collection, '=> collectionName');
+    if (isNewFolderClick) {
+      const docRef = doc(db, collection, newFolder);
+      setLoading(true);
+      await setDoc(docRef, data).then(() => {
+        console.log('added');
+        setLoading(false);
+        setScholar('');
+        setFolderName('');
+        setNewFolderName('');
+        setFileName('');
+        setLink('');
+        setIsNewFolderClick(false);
+      });
+    } else {
+      const docRef = doc(db, collection, folder);
+      setLoading(true);
+      await updateDoc(docRef, data).then(() => {
+        console.log('added');
+        setLoading(false);
+        setScholar('');
+        setFolderName('');
+        setFileName('');
+        setLink('');
+      });
+    }
   };
   return (
     <>
@@ -45,7 +74,7 @@ const addData = () => {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               autoWidth
-              label="เลือกโฟลเดอร์หลัก"
+              label="เลือกอาจารย์"
               value={Scholar}
               sx={{
                 mt: 2,
@@ -55,11 +84,35 @@ const addData = () => {
                 backgroundColor: 'white'
               }}
               onChange={(event) => setScholar(event.target.value)}>
-              <MenuItem value={'HanafeeKhutbah'}>อ.ฮานาฟี</MenuItem>
+              <MenuItem value={'Hanafee'}>อ.ฮานาฟี</MenuItem>
               <MenuItem value={'Ashabulyameen'}>อ.อัสฮาบุ้ลยามีน ปานนพภา</MenuItem>
-              <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>
+              {Category === 'Khutbah' && <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>}
               <MenuItem value={'Other'}>อื่นๆ</MenuItem>
             </Select>
+            {(Category === 'Tafseer' || Category === 'Talk') && (
+              <FormControl>
+                <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>
+                  เลือกประเภท
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  autoWidth
+                  label="เลือกประเภท"
+                  value={Category}
+                  sx={{
+                    mt: 2,
+                    height: 55,
+                    borderRadius: 2,
+                    width: 250,
+                    backgroundColor: 'white'
+                  }}
+                  onChange={(event) => setCategory(event.target.value)}>
+                  <MenuItem value={'Tafseer'}>ตัฟซีร</MenuItem>
+                  <MenuItem value={'Talk'}>บรรยาย</MenuItem>
+                </Select>
+              </FormControl>
+            )}
             <FormControl>
               <Stack direction="row">
                 <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>
@@ -79,26 +132,27 @@ const addData = () => {
                     backgroundColor: 'white'
                   }}
                   onChange={(event) => setFolderName(event.target.value)}>
+                  <MenuItem value={'02tafseer'}>choice1</MenuItem>
                   <MenuItem value={'HanafeeKhutbah'}>อ.ฮานาฟี</MenuItem>
                   <MenuItem value={'Ashabulyameen'}>อ.อัสฮาบุ้ลยามีน ปานนพภา</MenuItem>
                   <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>
                   <MenuItem value={'Other'}>อื่นๆ</MenuItem>
                 </Select>
                 <Button
-                  onClick={() => handleNewFolder()}
+                  onClick={() => setIsNewFolderClick(true)}
                   variant="text"
                   sx={{ mt: 2, color: theme.palette.primary.dark, height: 55 }}>
                   <PlusIcon />
                   ADD FOLDER
                 </Button>
               </Stack>
-              {isClick === true && (
+              {isNewFolderClick === true && (
                 <TextField
                   sx={{ mt: 2, width: 350, backgroundColor: 'white', borderRadius: 2 }}
-                  value={FolderName}
+                  value={NewFolderName}
                   required
                   label="โฟลเดอร์หลัก"
-                  onChange={(event) => setFolderName(event.target.value)}
+                  onChange={(event) => setNewFolderName(event.target.value)}
                 />
               )}
               <TextField
@@ -116,8 +170,13 @@ const addData = () => {
                 onChange={(event) => setLink(event.target.value)}
               />
               <Button
+                disabled={loading}
+                onClick={() => setData(collection, FolderName, NewFolderName)}
                 sx={{ mt: 2, backgroundColor: theme.palette.primary.dark, color: 'white' }}
                 variant="contained">
+                {loading && (
+                  <CircularProgress sx={{ mr: 2, color: theme.palette.primary.dark }} size={20} />
+                )}
                 POST
               </Button>
             </FormControl>

@@ -6,20 +6,48 @@ import {
   ListItem,
   ListItemText,
   Toolbar,
-  Typography
+  Typography,
+  Box
 } from '@mui/material';
-import { Box } from '@mui/system';
 import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
-import Admin from './Admin';
-import KhutbahManage from './KhutbahManage';
+import ManageTabs from '../components/ManageTabs';
+import AddData from '../components/AddData';
+import AddMedia from '../components/AddData';
 
 const manage = () => {
-  const [page, setPage] = useState(<KhutbahManage />);
+  const [page, setPage] = useState(
+    <ManageTabs
+      addDataPage={<AddData typename="Khutbah" />}
+      title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน"
+    />
+  );
   const tabs = [
-    { title: 'Khutbah', page: <KhutbahManage /> },
-    { title: 'Admin', page: <Admin /> }
+    {
+      title: 'Khutbah',
+      page: (
+        <ManageTabs
+          addDataPage={<AddData typename="Khutbah" />}
+          title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน"
+        />
+      )
+    },
+    {
+      title: 'Tafseer',
+      page: (
+        <ManageTabs addDataPage={<AddData typename="Tafseer" />} title="บรรยาย ตัฟซีรอัลกุรอาน" />
+      )
+    },
+    {
+      title: 'Facebook',
+      page: (
+        <ManageTabs
+          addDataPage={<AddMedia typename="Facebook" />}
+          title="Facebook ตัฟซีรอัลกุรอาน"
+        />
+      )
+    }
   ];
 
   return (

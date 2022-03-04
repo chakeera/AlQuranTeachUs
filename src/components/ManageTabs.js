@@ -1,19 +1,18 @@
-import { AppBar, Box, Tab, Tabs, Typography } from '@mui/material';
+import { AppBar, Tab, Tabs, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
-import AddData from '../components/AddData';
 
-const khutbahManage = () => {
+const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
 
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
-
   return (
     <>
       <Typography sx={{ my: 2, fontWeight: 'bold' }} variant="h6" textAlign="center">
-        คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน
+        {props.title}
       </Typography>
       <Box>
         <AppBar position="static">
@@ -29,10 +28,9 @@ const khutbahManage = () => {
           </Tabs>
         </AppBar>
       </Box>
-      {tabIndex === 1 && <AddData typename="01surah" />}
+      {tabIndex === 1 && props.addDataPage}
       {/* {tabIndex === 0 && <ShowData />} */}
     </>
   );
 };
-
-export default khutbahManage;
+export default ManageTabs;
