@@ -13,40 +13,23 @@ import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageTabs';
-import AddData from '../components/AddData';
-import AddMedia from '../components/AddData';
 
 const manage = () => {
   const [page, setPage] = useState(
-    <ManageTabs
-      addDataPage={<AddData typename="Khutbah" />}
-      title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน"
-    />
+    <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   );
   const tabs = [
     {
       title: 'Khutbah',
-      page: (
-        <ManageTabs
-          addDataPage={<AddData typename="Khutbah" />}
-          title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน"
-        />
-      )
+      page: <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
     },
     {
       title: 'Tafseer',
-      page: (
-        <ManageTabs addDataPage={<AddData typename="Tafseer" />} title="บรรยาย ตัฟซีรอัลกุรอาน" />
-      )
+      page: <ManageTabs value="Tafseer" title="บรรยาย ตัฟซีรอัลกุรอาน" />
     },
     {
       title: 'Facebook',
-      page: (
-        <ManageTabs
-          addDataPage={<AddMedia typename="Facebook" />}
-          title="Facebook ตัฟซีรอัลกุรอาน"
-        />
-      )
+      page: <ManageTabs value="Facebook" title="Facebook ตัฟซีรอัลกุรอาน" />
     }
   ];
 

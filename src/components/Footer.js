@@ -16,11 +16,11 @@ const Footer = () => (
           spacing={{ xs: 1, sm: 2, md: 50 }}>
           <Box>
             <Typography color="white" variant="h6">
-              อัลกุรอ่านสอนเรา อัลมุวาฮิด
+              อัลกุรอ่านสอนเรา อัลมุวาฮิด Al Quran Teaches Us
             </Typography>
-            <Typography color="white" variant="h6">
-              Al Quran Teach Us
-            </Typography>
+            {/* <Typography color="white" variant="h6">
+              Al Quran Teaches Us
+            </Typography> */}
           </Box>
           <Box>
             <Grid
@@ -38,9 +38,9 @@ const Footer = () => (
                 <Button href="/manage" variant="contained">
                   ADMIN
                 </Button>
-                <Button href="/sandbox" variant="contained">
+                {/* <Button href="/sandbox" variant="contained">
                   SANDBOX
-                </Button>
+                </Button> */}
               </Grid>
             </Grid>
           </Box>

@@ -2,6 +2,7 @@ import { AppBar, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
+import AddData from '../components/AddData';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -28,7 +29,7 @@ const ManageTabs = (props) => {
           </Tabs>
         </AppBar>
       </Box>
-      {tabIndex === 1 && props.addDataPage}
+      {tabIndex === 1 && <AddData key={props.value} typename={props.value} />}
       {/* {tabIndex === 0 && <ShowData />} */}
     </>
   );
