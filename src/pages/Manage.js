@@ -13,25 +13,12 @@ import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageTabs';
+import tabs from '../components/AdminSideTabs';
 
 const manage = () => {
   const [page, setPage] = useState(
     <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   );
-  const tabs = [
-    {
-      title: 'Khutbah',
-      page: <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
-    },
-    {
-      title: 'Tafseer',
-      page: <ManageTabs value="Tafseer" title="บรรยาย ตัฟซีรอัลกุรอาน" />
-    },
-    {
-      title: 'Facebook',
-      page: <ManageTabs value="Facebook" title="Facebook ตัฟซีรอัลกุรอาน" />
-    }
-  ];
 
   return (
     <>

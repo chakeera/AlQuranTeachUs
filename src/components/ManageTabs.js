@@ -3,6 +3,8 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
 import AddData from '../components/AddData';
+import AddDataSNS from '../components/AddDataSNS';
+import AddData1level from '../components/AddData1level';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -29,7 +31,17 @@ const ManageTabs = (props) => {
           </Tabs>
         </AppBar>
       </Box>
-      {tabIndex === 1 && <AddData key={props.value} typename={props.value} />}
+      {(props.value === 'Khutbah' || props.value === 'Tafseer') && tabIndex === 1 && (
+        <AddData key={props.value} typename={props.value} />
+      )}
+      {(props.value === 'Youtube' || props.value === 'Facebook') && tabIndex === 1 && (
+        <AddDataSNS key={props.value} typename={props.value} />
+      )}
+      {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
+        <AddData1level key={props.value} typename={props.value} />
+      )}
+
+      {/* {tabIndex === 1 && <AddData key={props.value} typename={props.value} />} */}
       {/* {tabIndex === 0 && <ShowData />} */}
     </>
   );
