@@ -2,12 +2,22 @@ import { AppBar, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
+import ShowData1 from '../components/ShowData1';
 import AddData from '../components/AddData';
 import AddDataSNS from '../components/AddDataSNS';
 import AddData1level from '../components/AddData1level';
+// import { collection, getDocs } from 'firebase/firestore';
+// import db from '../firebase';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
+
+  // const getData = async (Scholar) => {
+  //   const querySnapshot = await getDocs(collection(db, Scholar + props.typename));
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc.id, ' => ', doc.data());
+  //   });
+  // };
 
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
@@ -42,7 +52,7 @@ const ManageTabs = (props) => {
       )}
 
       {/* {tabIndex === 1 && <AddData key={props.value} typename={props.value} />} */}
-      {/* {tabIndex === 0 && <ShowData />} */}
+      {tabIndex === 0 && <ShowData1 key={props.value} typename={props.value} />}
     </>
   );
 };
