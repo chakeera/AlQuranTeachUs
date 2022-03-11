@@ -13,7 +13,7 @@ import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageTabs';
-import tabs from '../components/AdminSideTabs';
+import tabs from '../components/Data';
 
 const manage = () => {
   const [page, setPage] = useState(

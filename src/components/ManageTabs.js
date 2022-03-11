@@ -2,7 +2,8 @@ import { AppBar, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
-import ShowData1 from '../components/ShowData1';
+// import ShowData1 from '../components/ShowData1';
+import SelectScholar from '../components/selectScholar';
 import AddData from '../components/AddData';
 import AddDataSNS from '../components/AddDataSNS';
 import AddData1level from '../components/AddData1level';
@@ -52,7 +53,7 @@ const ManageTabs = (props) => {
       )}
 
       {/* {tabIndex === 1 && <AddData key={props.value} typename={props.value} />} */}
-      {tabIndex === 0 && <ShowData1 key={props.value} typename={props.value} />}
+      {tabIndex === 0 && <SelectScholar key={props.value} typename={props.value} />}
     </>
   );
 };

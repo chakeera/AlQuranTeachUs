@@ -16,13 +16,17 @@ import {
 } from '@mui/material';
 import FolderIcon from '@mui/icons-material/Folder';
 import React, { useState } from 'react';
-// import { collection, getDocs } from 'firebase/firestore';
 import theme from '../core/theme';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+// import { collection, getDocs } from 'firebase/firestore';
 // import db from '../firebase';
 
-const showData = () => {
+const showData = (props) => {
   // const [FolderNames, setFolderNames] = useState([]);
   const [Scholar, setScholar] = useState('Hanafee');
+  console.log('from prop', props.data);
 
   // const getFolderName = async () => {
   //   const folder = [];
@@ -67,22 +71,29 @@ const showData = () => {
         <Box display="flex">
           <Box m="auto">
             <Container>
-              <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {Array.from(Array(6)).map((name, index) => (
-                  <Grid item xs={2} sm={4} md={4} key={index}>
-                    <Button>
-                      <Card>
+              <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                <Grid item xs={12}>
+                  {props.data.map((folder, index) => (
+                    <Button key={index}>
+                      <Card sx={{ width: '275px', display: 'flex' }}>
                         <CardHeader
+                          sx={{
+                            display: 'flex',
+                            overflow: 'hidden',
+                            '& .MuiCardHeader-content': {
+                              overflow: 'hidden'
+                            }
+                          }}
                           avatar={
                             <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
                               <FolderIcon />
                             </Avatar>
                           }
-                          title={<Typography>FolderName</Typography>}></CardHeader>
+                          title={<Typography noWrap>{folder.folderName}</Typography>}></CardHeader>
                       </Card>
                     </Button>
-                  </Grid>
-                ))}
+                  ))}
+                </Grid>
               </Grid>
             </Container>
           </Box>
@@ -92,4 +103,15 @@ const showData = () => {
     </>
   );
 };
-export default showData;
+
+const mapStateToProps = (state, props) => {
+  console.log('from map', state);
+  console.log('from map props', props);
+  return {
+    data: [state.firestore.data.Khutbah.Hanafee]
+  };
+};
+export default compose(
+  firestoreConnect(() => ['Khutbah']),
+  connect(mapStateToProps)
+)(showData);

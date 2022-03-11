@@ -9,6 +9,7 @@ const CarouselSlide = () => {
   return (
     <div>
       <Carousel
+        autoPlay
         dynamicHeight={true}
         showArrows={true}
         showStatus={false}
