@@ -27,8 +27,10 @@ const TopBox = () => {
             <Card sx={{ mx: 2, my: 2, maxWidth: 350, height: { md: 270 }, maxHeight: { xs: 270 } }}>
               <CardMedia component="img" alt="topbox1" image={SampleImage} />
               <CardContent sx={{ display: 'flex' }}>
-                <Typography variant="h6">
+                <Typography variant="h9">
                   เนื้อหาcontentของtopicนี้ใส่ได้ไม่เกิน5บรรทัดนี้ ใส่ได้ไม่เกิน5บรรทัดนี้
+                  ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดใส่
+                  ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดใส่
                   ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดนี้ใส่ได้ไม่เกิน5บรรทัดใส่
                 </Typography>
               </CardContent>

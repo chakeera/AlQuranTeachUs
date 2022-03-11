@@ -13,7 +13,7 @@ import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageTabs';
-import tabs from '../components/Data';
+import tabs from '../components/TabsData';
 
 const manage = () => {
   const [page, setPage] = useState(
@@ -48,7 +48,8 @@ const manage = () => {
           <Box
             sx={{
               background: theme.palette.primary.dark,
-              overflow: 'auto'
+              overflow: 'auto',
+              height: '100vh'
             }}>
             <List>
               {tabs.map((data) => (

@@ -28,6 +28,12 @@ const addDataReducer = (state = initState, action) => {
     case 'CREATE_ERR':
       console.log('created data error', action.error);
       return state;
+    case 'CREATE_SINGLE_DATA':
+      console.log('created single data', action.data);
+      return state;
+    case 'CREATE_SINGLE_ERR':
+      console.log('created single data error', action.error);
+      return state;
     default:
       return state;
   }

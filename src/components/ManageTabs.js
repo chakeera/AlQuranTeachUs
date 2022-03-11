@@ -2,23 +2,13 @@ import { AppBar, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import theme from '../core/theme';
-// import ShowData1 from '../components/ShowData1';
-import SelectScholar from '../components/selectScholar';
+import SelectScholar from './SelectScholar';
 import AddData from '../components/AddData';
-import AddDataSNS from '../components/AddDataSNS';
-import AddData1level from '../components/AddData1level';
-// import { collection, getDocs } from 'firebase/firestore';
-// import db from '../firebase';
+import AddSingleFileData from '../components/AddSingleFileData';
+import DisplaySingleData from './DisplaySingleData';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
-
-  // const getData = async (Scholar) => {
-  //   const querySnapshot = await getDocs(collection(db, Scholar + props.typename));
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc.id, ' => ', doc.data());
-  //   });
-  // };
 
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
@@ -42,18 +32,22 @@ const ManageTabs = (props) => {
           </Tabs>
         </AppBar>
       </Box>
-      {(props.value === 'Khutbah' || props.value === 'Tafseer') && tabIndex === 1 && (
-        <AddData key={props.value} typename={props.value} />
-      )}
-      {(props.value === 'Youtube' || props.value === 'Facebook') && tabIndex === 1 && (
-        <AddDataSNS key={props.value} typename={props.value} />
-      )}
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
-        <AddData1level key={props.value} typename={props.value} />
+        <AddSingleFileData key={props.value} typename={props.value} />
       )}
-
-      {/* {tabIndex === 1 && <AddData key={props.value} typename={props.value} />} */}
-      {tabIndex === 0 && <SelectScholar key={props.value} typename={props.value} />}
+      {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 0 && (
+        <DisplaySingleData key={props.value} typename={props.value} />
+      )}
+      {(props.value === 'Khutbah' ||
+        props.value === 'Tafseer' ||
+        props.value === 'Facebook' ||
+        props.value === 'Youtube') &&
+        tabIndex === 1 && <AddData key={props.value} typename={props.value} />}
+      {(props.value === 'Khutbah' ||
+        props.value === 'Tafseer' ||
+        props.value === 'Facebook' ||
+        props.value === 'Youtube') &&
+        tabIndex === 0 && <SelectScholar key={props.value} typename={props.value} />}
     </>
   );
 };

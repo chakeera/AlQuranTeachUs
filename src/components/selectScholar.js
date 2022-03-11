@@ -1,10 +1,11 @@
 import { Box, FormControl, InputLabel, MenuItem, Select, Stack, Toolbar } from '@mui/material';
 import React, { useState } from 'react';
 import theme from '../core/theme';
-import DisplayData from './displayData';
+import DisplayData from './DisplayData';
 
 const selectScholar = (props) => {
   const [Scholar, setScholar] = useState('Hanafee');
+  const [Category, setCategory] = useState(props.typename);
 
   return (
     <>
@@ -33,8 +34,31 @@ const selectScholar = (props) => {
               <MenuItem value={'Other'}>อื่นๆ</MenuItem>
             </Select>
           </Stack>
+          {props.typename === 'Tafseer' && (
+            <FormControl>
+              <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>
+                เลือกประเภท
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                autoWidth
+                label="เลือกประเภท"
+                value={Category}
+                sx={{
+                  mt: 2,
+                  height: 55,
+                  borderRadius: 2,
+                  width: 250
+                }}
+                onChange={(event) => setCategory(event.target.value)}>
+                <MenuItem value={'Tafseer'}>ตัฟซีร</MenuItem>
+                <MenuItem value={'Talk'}>บรรยาย</MenuItem>
+              </Select>
+            </FormControl>
+          )}
         </FormControl>
-        <DisplayData category={props.typename} scholar={Scholar}></DisplayData>
+        <DisplayData category={Category} scholar={Scholar}></DisplayData>
         <Toolbar />
       </Box>
     </>
