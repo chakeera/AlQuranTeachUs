@@ -4,16 +4,28 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
+import { useState } from 'react';
+import ArrowBack from '@mui/icons-material/ArrowBack';
 
 const displayData = (props) => {
+  const [isFolderClick, setFolderClick] = useState(false);
+  const [index, setIndex] = useState(-1);
   var folderName = [];
+  var files = [];
   var collection = props.scholar + props.category;
   var data = props.data[collection];
   if (data != (null || undefined)) {
     folderName = [];
     Object.values(data).map((item) => {
       folderName.push(item.folderName);
+      files.push(item.files);
     });
+  }
+
+  if (isFolderClick === true) {
+    props.setDisplay(false);
+  } else {
+    props.setDisplay(true);
   }
 
   return (
@@ -27,35 +39,91 @@ const displayData = (props) => {
           </Box>
         </Box>
       ) : (
-        <Box height="50vh" display="flex">
-          <Box m="auto">
-            <Container>
-              <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={12}>
-                  {folderName.map((folder, index) => (
-                    <Button key={index}>
-                      <Card sx={{ width: '275px', display: 'flex' }}>
-                        <CardHeader
-                          sx={{
-                            display: 'flex',
-                            overflow: 'hidden',
-                            '& .MuiCardHeader-content': {
-                              overflow: 'hidden'
-                            }
-                          }}
-                          avatar={
-                            <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
-                              <FolderIcon />
-                            </Avatar>
-                          }
-                          title={<Typography noWrap>{folder}</Typography>}></CardHeader>
-                      </Card>
-                    </Button>
-                  ))}
-                </Grid>
-              </Grid>
-            </Container>
-          </Box>
+        <Box>
+          {isFolderClick !== true ? (
+            <Box height="50vh" display="flex">
+              <Box m="auto">
+                <Container>
+                  <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Grid item xs={12}>
+                      {folderName.map((folder, index) => (
+                        <Button
+                          key={index}
+                          onClick={() => {
+                            setFolderClick(true);
+                            setIndex(index);
+                          }}>
+                          <Card sx={{ width: '275px', display: 'flex' }}>
+                            <CardHeader
+                              sx={{
+                                display: 'flex',
+                                overflow: 'hidden',
+                                '& .MuiCardHeader-content': {
+                                  overflow: 'hidden'
+                                }
+                              }}
+                              avatar={
+                                <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
+                                  <FolderIcon />
+                                </Avatar>
+                              }
+                              title={<Typography noWrap>{folder}</Typography>}></CardHeader>
+                          </Card>
+                        </Button>
+                      ))}
+                    </Grid>
+                  </Grid>
+                </Container>
+              </Box>
+            </Box>
+          ) : (
+            <Box>
+              <Container>
+                <Button sx={{ my: 2, mx: 2 }} variant="text" onClick={() => setFolderClick(false)}>
+                  <ArrowBack />
+                  <Typography
+                    sx={{
+                      mx: 1,
+                      textAlign: 'center',
+                      color: theme.palette.primary.dark,
+                      fontWeight: 'bolder',
+                      fontSize: 18
+                    }}>
+                    กลับ
+                  </Typography>
+                </Button>
+                <Box height="50vh" display="flex">
+                  <Box m="auto">
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                      <Grid item xs={12}>
+                        {files[index].map((file, index) => (
+                          <Button key={index} href={file.link}>
+                            <Card sx={{ width: '275px', display: 'flex' }}>
+                              <CardHeader
+                                sx={{
+                                  display: 'flex',
+                                  overflow: 'hidden',
+                                  '& .MuiCardHeader-content': {
+                                    overflow: 'hidden'
+                                  }
+                                }}
+                                avatar={
+                                  <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
+                                    <FolderIcon />
+                                  </Avatar>
+                                }
+                                title={<Typography noWrap>{file.name}</Typography>}></CardHeader>
+                            </Card>
+                          </Button>
+                        ))}
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Box>
+              </Container>
+            </Box>
+            // </Box>
+          )}
         </Box>
       )}
     </>

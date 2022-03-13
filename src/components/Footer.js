@@ -18,9 +18,6 @@ const Footer = () => (
             <Typography color="white" variant="h6">
               อัลกุรอ่านสอนเรา อัลมุวาฮิด Al Quran Teaches Us
             </Typography>
-            {/* <Typography color="white" variant="h6">
-              Al Quran Teaches Us
-            </Typography> */}
           </Box>
           <Box>
             <Grid
@@ -38,9 +35,6 @@ const Footer = () => (
                 <Button href="/manage" variant="contained">
                   ADMIN
                 </Button>
-                {/* <Button href="/sandbox" variant="contained">
-                  SANDBOX
-                </Button> */}
               </Grid>
             </Grid>
           </Box>
