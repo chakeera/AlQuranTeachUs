@@ -1,4 +1,4 @@
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, doc, arrayUnion } from 'firebase/firestore';
 
 const createData = (data) => {
   // eslint-disable-next-line no-unused-vars
@@ -34,4 +34,20 @@ const createSingleData = (data) => {
   };
 };
 
-export { createData, createSingleData };
+const addNewFile = (data) => {
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    updateDoc(doc(firestore, data.collection, data.docId), {
+      files: arrayUnion(data.newFile)
+    })
+      .then(() => {
+        dispatch({ type: 'ADD_FILE', data: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'ADD_FILE_ERR', error: error });
+      });
+  };
+};
+
+export { createData, createSingleData, addNewFile };

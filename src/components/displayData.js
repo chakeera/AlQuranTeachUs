@@ -4,12 +4,14 @@ import FolderIcon from '@mui/icons-material/Folder';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ArrowBack from '@mui/icons-material/ArrowBack';
+import AddFile from './addFile';
 
 const displayData = (props) => {
   const [isFolderClick, setFolderClick] = useState(false);
   const [index, setIndex] = useState(-1);
+  var docId = [];
   var folderName = [];
   var files = [];
   var collection = props.scholar + props.category;
@@ -20,18 +22,22 @@ const displayData = (props) => {
       folderName.push(item.folderName);
       files.push(item.files);
     });
+    docId = [];
+    Object.keys(data).map((key) => docId.push(key));
   }
 
-  if (isFolderClick === true) {
-    props.setDisplay(false);
-  } else {
-    props.setDisplay(true);
-  }
-
+  useEffect(() => {
+    if (isFolderClick === true) {
+      props.setDisplay(false);
+    } else {
+      props.setDisplay(true);
+    }
+  });
   return (
     <>
       {folderName.length === 0 ? (
         <Box height="50vh" display="flex">
+          {/* when database is empty */}
           <Box m="auto">
             <Container>
               <Typography align="center">ไม่ผบข้อมูล</Typography>
@@ -40,8 +46,10 @@ const displayData = (props) => {
         </Box>
       ) : (
         <Box>
+          {/* when database returns data */}
           {isFolderClick !== true ? (
             <Box height="50vh" display="flex">
+              {/* folderview */}
               <Box m="auto">
                 <Container>
                   <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -78,6 +86,7 @@ const displayData = (props) => {
             </Box>
           ) : (
             <Box>
+              {/* fileview */}
               <Container>
                 <Button sx={{ my: 2, mx: 2 }} variant="text" onClick={() => setFolderClick(false)}>
                   <ArrowBack />
@@ -92,6 +101,7 @@ const displayData = (props) => {
                     กลับ
                   </Typography>
                 </Button>
+                <AddFile collection={collection} docId={docId[index]} />
                 <Box height="50vh" display="flex">
                   <Box m="auto">
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -122,7 +132,6 @@ const displayData = (props) => {
                 </Box>
               </Container>
             </Box>
-            // </Box>
           )}
         </Box>
       )}

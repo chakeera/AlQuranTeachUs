@@ -34,6 +34,12 @@ const addDataReducer = (state = initState, action) => {
     case 'CREATE_SINGLE_ERR':
       console.log('created single data error', action.error);
       return state;
+    case 'ADD_FILE':
+      console.log('add file', action.data);
+      return state;
+    case 'ADD_FILE_ERR':
+      console.log('add file error', action.error);
+      return state;
     default:
       return state;
   }
