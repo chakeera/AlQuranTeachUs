@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Card, CardHeader, Container, Grid, Typography } from '@mui/material';
-import theme from '../core/theme';
+import theme from '../../core/theme';
 import FolderIcon from '@mui/icons-material/Folder';
 
 const folderView = (props) => {

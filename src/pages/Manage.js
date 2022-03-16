@@ -12,8 +12,8 @@ import {
 import React from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
-import ManageTabs from '../components/ManageTabs';
-import tabs from '../components/TabsData';
+import ManageTabs from '../components/ManageData/ManageTabs';
+import tabs from '../components/DataUtils/TabsData';
 
 const manage = () => {
   const [page, setPage] = useState(

@@ -1,4 +1,4 @@
-import ManageTabs from './ManageTabs';
+import ManageTabs from '../ManageData/ManageTabs';
 const tabs = [
   {
     title: 'Khutbah',

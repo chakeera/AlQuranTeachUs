@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Card, CardHeader, Container, Grid, Typography } from '@mui/material';
-import theme from '../core/theme';
-import AddFile from './addFile';
+import theme from '../../core/theme';
+import AddFile from './AddFile';
 import FolderIcon from '@mui/icons-material/Folder';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 

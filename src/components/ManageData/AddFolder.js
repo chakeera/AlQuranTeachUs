@@ -11,8 +11,8 @@ import {
   TextField,
   Toolbar
 } from '@mui/material';
-import theme from '../core/theme';
-import { createData } from '../store/action/databaseAction';
+import theme from '../../core/theme';
+import { createData } from '../../store/action/databaseAction';
 import { connect } from 'react-redux';
 
 const addData = (props) => {

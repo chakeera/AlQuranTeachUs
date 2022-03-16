@@ -10,10 +10,10 @@ import {
   Alert
 } from '@mui/material';
 import { useState } from 'react';
-import theme from '../core/theme';
+import theme from '../../core/theme';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { connect } from 'react-redux';
-import { addNewFile } from '../store/action/databaseAction';
+import { addNewFile } from '../../store/action/databaseAction';
 
 const addFile = (props) => {
   const [open, setOpen] = useState(false);

@@ -1,10 +1,10 @@
 import { AppBar, Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import theme from '../core/theme';
+import theme from '../../core/theme';
 import SelectScholar from './SelectScholar';
-import AddData from '../components/AddData';
-import AddSingleFileData from '../components/AddSingleFileData';
+import AddFolder from './AddFolder';
+import AddSingleFileData from './AddSingleFileData';
 import DisplaySingleData from './DisplaySingleData';
 
 const ManageTabs = (props) => {
@@ -42,7 +42,7 @@ const ManageTabs = (props) => {
         props.value === 'Tafseer' ||
         props.value === 'Facebook' ||
         props.value === 'Youtube') &&
-        tabIndex === 1 && <AddData key={props.value} typename={props.value} />}
+        tabIndex === 1 && <AddFolder key={props.value} typename={props.value} />}
       {(props.value === 'Khutbah' ||
         props.value === 'Tafseer' ||
         props.value === 'Facebook' ||

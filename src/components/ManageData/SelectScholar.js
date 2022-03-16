@@ -1,6 +1,6 @@
 import { Box, FormControl, InputLabel, MenuItem, Select, Stack, Toolbar } from '@mui/material';
 import React, { useState } from 'react';
-import theme from '../core/theme';
+import theme from '../../core/theme';
 import DisplayData from './DisplayData';
 
 const selectScholar = (props) => {

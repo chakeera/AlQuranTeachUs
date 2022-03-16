@@ -1,9 +1,9 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import theme from '../core/theme';
-import SampleImage from '../assets/images/banner.jpg';
-import '../style/iframe.css';
+import theme from '../../core/theme';
+import SampleImage from '../../assets/images/banner.jpg';
+import '../../style/iframe.css';
 
 const TopBox = () => {
   return (

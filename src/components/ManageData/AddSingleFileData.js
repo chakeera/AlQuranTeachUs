@@ -1,8 +1,8 @@
 import { Alert, Box, Button, FormControl, Snackbar, TextField, Toolbar } from '@mui/material';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import theme from '../core/theme';
-import { createSingleData } from '../store/action/databaseAction';
+import theme from '../../core/theme';
+import { createSingleData } from '../../store/action/databaseAction';
 const addSingleFileData = (props) => {
   const [alert, setAlert] = useState(false);
   const [FileName, setFileName] = useState('');

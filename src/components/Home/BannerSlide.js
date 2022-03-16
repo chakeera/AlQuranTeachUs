@@ -1,11 +1,11 @@
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import Banner1 from '../assets/images/banner.jpg';
-import Banner2 from '../assets/images/banner2.png';
-import Banner3 from '../assets/images/banner3.png';
+import Banner1 from '../../assets/images/banner.jpg';
+import Banner2 from '../../assets/images/banner2.png';
+import Banner3 from '../../assets/images/banner3.png';
 
-const CarouselSlide = () => {
+const bannerSlide = () => {
   return (
     <div>
       <Carousel
@@ -33,4 +33,4 @@ const CarouselSlide = () => {
   );
 };
 
-export default CarouselSlide;
+export default bannerSlide;
