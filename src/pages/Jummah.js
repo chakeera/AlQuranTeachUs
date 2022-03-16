@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardMedia, Typography } from '@mui/material';
-import Appbar from '../components/Appbar';
+// import Appbar from '../components/Appbar';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import theme from '../core/theme';
 import Jummah from '../assets/images/jummah1.jpg';
@@ -7,11 +7,10 @@ import Jummah from '../assets/images/jummah1.jpg';
 const Friday = () => {
   return (
     <div>
-      <Appbar></Appbar>
+      {/* <Appbar></Appbar> */}
       <Button
         href="/"
         sx={{ mx: 2, my: 2, color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
-        Icon
         variant="text">
         {' '}
         <ArrowBack></ArrowBack>กลับหน้าหลัก
