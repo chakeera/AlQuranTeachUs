@@ -48,7 +48,7 @@ const addFile = (props) => {
   console.log(state);
   return (
     <>
-      <Button sx={{ my: 2, mx: 2 }} variant="text" onClick={handleClickOpen}>
+      <Button sx={{ mt: 6, mx: 2, mb: 2 }} variant="text" onClick={handleClickOpen}>
         <AddCircleIcon sx={{ color: theme.palette.primary.dark }} />
         <Typography
           sx={{

@@ -19,7 +19,7 @@ const ManageTabs = (props) => {
         {props.title}
       </Typography>
       <Box>
-        <AppBar position="static">
+        <AppBar elevation={0} position="static">
           <Tabs
             value={tabIndex}
             onChange={handleChange}

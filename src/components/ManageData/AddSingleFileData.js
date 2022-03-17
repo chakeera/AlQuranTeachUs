@@ -41,14 +41,14 @@ const addSingleFileData = (props) => {
           <form onSubmit={handleSubmit}>
             <FormControl fullWidth>
               <TextField
-                sx={{ mt: 2, width: 350, backgroundColor: 'white', borderRadius: 2 }}
+                sx={{ mt: 2, width: 350, backgroundColor: 'white', borderRadius: 1 }}
                 value={FileName}
                 required
                 label="ชื่อไฟล์"
                 onChange={(event) => setFileName(event.target.value)}
               />
               <TextField
-                sx={{ mt: 2, width: 550, backgroundColor: 'white', borderRadius: 2 }}
+                sx={{ mt: 2, width: 550, backgroundColor: 'white', borderRadius: 1 }}
                 value={Link}
                 required
                 label="ลิงค์ไฟล์ mp3 หรือ Youtube"
