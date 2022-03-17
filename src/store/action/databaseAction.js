@@ -1,4 +1,12 @@
-import { collection, addDoc, updateDoc, doc, arrayUnion } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  doc,
+  arrayUnion,
+  arrayRemove,
+  deleteDoc
+} from 'firebase/firestore';
 
 const createData = (data) => {
   // eslint-disable-next-line no-unused-vars
@@ -50,4 +58,34 @@ const addNewFile = (data) => {
   };
 };
 
-export { createData, createSingleData, addNewFile };
+const deleteFolder = (data) => {
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    deleteDoc(doc(firestore, data.collection, data.docId))
+      .then(() => {
+        dispatch({ type: 'DEL_FOLDER', data: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'DEL_FOLDER_ERR', error: error });
+      });
+  };
+};
+
+const deleteFile = (data) => {
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    updateDoc(doc(firestore, data.collection, data.docId), {
+      files: arrayRemove(data.file)
+    })
+      .then(() => {
+        dispatch({ type: 'DEL_FILE', data: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'DEL_FILE_ERR', error: error });
+      });
+  };
+};
+
+export { createData, createSingleData, addNewFile, deleteFolder, deleteFile };

@@ -14,7 +14,7 @@ const displayData = (props) => {
   var files = [];
   var collection = props.scholar + props.category;
   var data = props.data[collection];
-  if (data != (null || undefined)) {
+  if (data != null || data != undefined) {
     folderName = [];
     Object.values(data).map((item) => {
       folderName.push(item.folderName);
@@ -46,7 +46,13 @@ const displayData = (props) => {
         <Box>
           {/* when database returns data */}
           {isFolderClick !== true ? (
-            <FolderView folders={folderName} setIndex={setIndex} setFolderClick={setFolderClick} />
+            <FolderView
+              collection={collection}
+              folders={folderName}
+              docId={docId}
+              setIndex={setIndex}
+              setFolderClick={setFolderClick}
+            />
           ) : (
             <FileView
               collection={collection}

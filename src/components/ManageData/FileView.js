@@ -3,7 +3,7 @@ import theme from '../../core/theme';
 import AddFile from './AddFile';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import ArrowBack from '@mui/icons-material/ArrowBack';
-import DeleteFile from './DeleteFile';
+import DeleteData from './DeleteData';
 
 const fileView = (props) => {
   return (
@@ -33,34 +33,14 @@ const fileView = (props) => {
                 <Grid key={index} item xs={12} md={4}>
                   <Card sx={{ width: '275px', display: 'flex' }}>
                     <CardHeader
-                      action={<DeleteFile />}
-                      sx={{
-                        display: 'flex',
-                        overflow: 'hidden',
-                        '& .MuiCardHeader-content': {
-                          overflow: 'hidden'
-                        }
-                      }}
-                      avatar={
-                        <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
-                          <InsertDriveFileIcon />
-                        </Avatar>
+                      action={
+                        <DeleteData
+                          type="file"
+                          docId={props.docId}
+                          collection={props.collection}
+                          data={file}
+                        />
                       }
-                      title={
-                        <Button href={file.link} sx={{ color: 'white', textAlign: 'left' }}>
-                          <Typography sx={{ width: 150 }} noWrap color={theme.palette.primary.dark}>
-                            {file.name}
-                          </Typography>
-                        </Button>
-                      }></CardHeader>
-                  </Card>
-                </Grid>
-              ))}
-              {props.files.map((file, index) => (
-                <Grid key={index} item xs={12} md={4}>
-                  <Card sx={{ width: '275px', display: 'flex' }}>
-                    <CardHeader
-                      action={<DeleteFile />}
                       sx={{
                         display: 'flex',
                         overflow: 'hidden',

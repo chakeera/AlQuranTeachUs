@@ -45,7 +45,6 @@ const addFile = (props) => {
     setAlert(false);
   };
 
-  console.log(state);
   return (
     <>
       <Button sx={{ mt: 6, mx: 2, mb: 2 }} variant="text" onClick={handleClickOpen}>

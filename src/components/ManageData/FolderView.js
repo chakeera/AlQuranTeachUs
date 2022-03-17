@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Card, CardHeader, Container, Grid, Typography } from '@mui/material';
 import theme from '../../core/theme';
 import FolderIcon from '@mui/icons-material/Folder';
-import DeleteFile from './DeleteFile';
+import DeleteData from './DeleteData';
 
 const folderView = (props) => {
   return (
@@ -12,7 +12,13 @@ const folderView = (props) => {
             <Grid key={index} item xs={12} md={4}>
               <Card sx={{ width: '275px', display: 'flex' }}>
                 <CardHeader
-                  action={<DeleteFile />}
+                  action={
+                    <DeleteData
+                      collection={props.collection}
+                      type="folder"
+                      docId={props.docId[index]}
+                    />
+                  }
                   sx={{
                     display: 'flex',
                     overflow: 'hidden',

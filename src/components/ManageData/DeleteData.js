@@ -9,8 +9,11 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
+import theme from '../../core/theme';
+import { connect } from 'react-redux';
+import { deleteFolder, deleteFile } from '../../store/action/databaseAction';
 
-const deleteFile = () => {
+const deleteData = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -19,6 +22,15 @@ const deleteFile = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleDelete = () => {
+    if (props.type === 'folder') {
+      props.deleteFolder({ docId: props.docId, collection: props.collection });
+    }
+    if (props.type === 'file') {
+      props.deleteFile({ docId: props.docId, collection: props.collection, file: props.data });
+      // console.log(props.data);
+    }
   };
 
   return (
@@ -40,9 +52,16 @@ const deleteFile = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
+          <Button
+            sx={{ color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
+            onClick={handleClose}>
+            ยกเลิก
+          </Button>
+          <Button
+            sx={{ color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
+            onClick={handleDelete}
+            autoFocus>
+            ตกลง
           </Button>
         </DialogActions>
       </Dialog>
@@ -50,4 +69,12 @@ const deleteFile = () => {
   );
 };
 
-export default deleteFile;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteFolder: (data) => dispatch(deleteFolder(data)),
+    deleteFile: (data) => dispatch(deleteFile(data))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(deleteData);
+// export default deleteFile;

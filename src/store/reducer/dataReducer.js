@@ -40,6 +40,18 @@ const addDataReducer = (state = initState, action) => {
     case 'ADD_FILE_ERR':
       console.log('add file error', action.error);
       return state;
+    case 'DEL_FOLDER':
+      console.log('delete folder', action.data);
+      return state;
+    case 'DEL_FOLDER_ERR':
+      console.log('delete folder error', action.error);
+      return state;
+    case 'DEL_FILE':
+      console.log('delete file', action.data);
+      return state;
+    case 'DEL_FILE_ERR':
+      console.log('delete file error', action.error);
+      return state;
     default:
       return state;
   }
