@@ -26,6 +26,7 @@ const deleteData = (props) => {
   const handleDelete = () => {
     if (props.type === 'folder') {
       props.deleteFolder({ docId: props.docId, collection: props.collection });
+      // console.log(props.collection, props.docId);
     }
     if (props.type === 'file') {
       props.deleteFile({ docId: props.docId, collection: props.collection, file: props.data });

@@ -8,7 +8,7 @@ const addSingleFileData = (props) => {
   const [FileName, setFileName] = useState('');
   const [Link, setLink] = useState('');
   const state = {
-    collection: props.typename,
+    collection: props.category,
     fileName: FileName,
     link: Link
   };

@@ -5,7 +5,7 @@ import DisplayData from './DisplayData';
 
 const selectScholar = (props) => {
   const [Scholar, setScholar] = useState('Hanafee');
-  const [Category, setCategory] = useState(props.typename);
+  const [Category, setCategory] = useState(props.category);
   const [isDisplay, setDisplay] = useState(true);
 
   return (
@@ -34,7 +34,7 @@ const selectScholar = (props) => {
               <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>
               <MenuItem value={'Other'}>อื่นๆ</MenuItem>
             </Select>
-            {props.typename === 'Tafseer' && (
+            {props.category === 'Tafseer' && (
               <FormControl>
                 <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>
                   เลือกประเภท

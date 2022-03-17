@@ -21,7 +21,7 @@ const addData = (props) => {
   const [FileName, setFileName] = useState('');
   const [Link, setLink] = useState('');
   const [alert, setAlert] = useState(false);
-  const [Category, setCategory] = useState(props.typename);
+  const [Category, setCategory] = useState(props.category);
   const collection = Scholar + Category;
   const state = {
     collection: collection,

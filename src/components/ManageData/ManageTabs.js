@@ -33,21 +33,21 @@ const ManageTabs = (props) => {
         </AppBar>
       </Box>
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
-        <AddSingleFileData key={props.value} typename={props.value} />
+        <AddSingleFileData key={props.value} category={props.value} />
       )}
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 0 && (
-        <DisplaySingleData key={props.value} typename={props.value} />
+        <DisplaySingleData key={props.value} category={props.value} />
       )}
       {(props.value === 'Khutbah' ||
         props.value === 'Tafseer' ||
         props.value === 'Facebook' ||
         props.value === 'Youtube') &&
-        tabIndex === 1 && <AddFolder key={props.value} typename={props.value} />}
+        tabIndex === 1 && <AddFolder key={props.value} category={props.value} />}
       {(props.value === 'Khutbah' ||
         props.value === 'Tafseer' ||
         props.value === 'Facebook' ||
         props.value === 'Youtube') &&
-        tabIndex === 0 && <SelectScholar key={props.value} typename={props.value} />}
+        tabIndex === 0 && <SelectScholar key={props.value} category={props.value} />}
     </>
   );
 };
