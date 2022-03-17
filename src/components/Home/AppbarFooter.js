@@ -9,9 +9,9 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
-import theme from '../core/theme';
-import Bismillah from '../assets/images/bismillah.png';
-import Logo from '../assets/images/logo.png';
+import theme from '../../core/theme';
+import Bismillah from '../../assets/images/bismillah.png';
+import Logo from '../../assets/images/logo.png';
 
 export const Appbar = () => {
   return (

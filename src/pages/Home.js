@@ -3,7 +3,7 @@ import BannerSlide from '../components/Home/BannerSlide';
 import TopContent from '../components/Home/TopContent';
 import CategoriesBox from '../components/Home/CategoriesBox';
 import { Container } from '@mui/material';
-import { Appbar, Footer } from '../components/AppbarFooter';
+import { Appbar, Footer } from '../components/Home/AppbarFooter';
 
 const Home = () => (
   <>
