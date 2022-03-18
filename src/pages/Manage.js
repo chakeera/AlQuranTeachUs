@@ -14,6 +14,7 @@ import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageData/ManageTabs';
 import tabs from '../components/DataUtils/TabsData';
+import { connect } from 'react-redux';
 
 const manage = () => {
   const [page, setPage] = useState(
@@ -78,4 +79,10 @@ const manage = () => {
   );
 };
 
-export default manage;
+const mapStateToProps = () => {
+  return {
+    // data: state.firestore.data
+  };
+};
+
+export default connect(mapStateToProps)(manage);

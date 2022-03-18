@@ -77,7 +77,7 @@ export const Footer = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button href="/manage" variant="contained">
+                  <Button href="/login" variant="contained">
                     ADMIN
                   </Button>
                 </Grid>

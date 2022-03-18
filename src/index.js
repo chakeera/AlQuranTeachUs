@@ -37,7 +37,6 @@ ReactDOM.render(
         <App />
       </ReactReduxFirebaseProvider>
     </Provider>
-    ,
   </React.StrictMode>,
   document.getElementById('root')
 );
