@@ -9,7 +9,7 @@ const categoryData = [
   {
     title: 'คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน',
     image: FridayPhoto,
-    link: '/Jummah'
+    link: '/Khutbah'
   },
   { title: 'บรรยาย ตัฟซีรอัลกุรอาน', image: TafseerPhoto, link: '/Jummah' },
   { title: 'Facebook ตัฟซีรอัลกุรอาน', image: FacebookPhoto, link: '/Jummah' },
