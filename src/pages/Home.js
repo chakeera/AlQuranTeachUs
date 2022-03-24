@@ -1,20 +1,33 @@
+import { Box, Grid } from '@mui/material';
 import React from 'react';
-import BannerSlide from '../components/Home/BannerSlide';
-import TopContent from '../components/Home/TopContent';
-import CategoriesBox from '../components/Home/CategoriesBox';
-import { Container } from '@mui/material';
-import { Appbar, Footer } from '../components/Home/AppbarFooter';
+import Appbar from '../components/Home/Appbar';
+import Content from '../components/Home/Content';
+import Footer from '../components/Home/Footer';
+import background from '../assets/images/background.png';
 
 const Home = () => (
   <>
-    <Appbar />
-    <Container>
-      <BannerSlide></BannerSlide>
-      <TopContent></TopContent>
-      <CategoriesBox></CategoriesBox>
-    </Container>
-    <Footer />
+    <Box style={styles.container}>
+      <Grid direction="column">
+        <Appbar></Appbar>
+        <Content></Content>
+        <Footer></Footer>
+      </Grid>
+    </Box>
   </>
 );
+
+const styles = {
+  container: {
+    backgroundImage: `url(${background})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    minWidth: '100vw',
+    minHeight: '100vh',
+    width: '100%',
+    height: '100%',
+    backgroundAttachment: 'fixed'
+  }
+};
 
 export default Home;

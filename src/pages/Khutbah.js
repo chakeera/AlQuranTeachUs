@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material';
-import { Appbar } from '../components/Home/AppbarFooter';
+// import { Appbar } from '../components/OldHome/AppbarFooter';
 import theme from '../core/theme';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import SelectScholarContent from '../components/ContentPage/SelectScholarContent';
@@ -7,7 +7,7 @@ import SelectScholarContent from '../components/ContentPage/SelectScholarContent
 const khutbah = () => {
   return (
     <>
-      <Appbar />
+      {/* <Appbar /> */}
       <Button
         href="/"
         sx={{
