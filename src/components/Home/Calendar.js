@@ -7,7 +7,7 @@ import '../../assets/styles/calendar.css';
 const calendar = () => {
   return (
     <>
-      <Grid container spacing={2} direction={{ md: 'row' }}>
+      <Grid container spacing={0} direction={{ md: 'row' }}>
         <Grid item>
           <Box component="img" height={{ md: '300px' }} width={'auto'} src={verticalHeader} />
         </Grid>
