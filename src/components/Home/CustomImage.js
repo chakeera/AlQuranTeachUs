@@ -5,9 +5,11 @@ const customImage = () => {
   return (
     <>
       <Box
-        borderRadius={'20px 0px 0px 0px'}
-        height={'auto'}
-        width={{ xs: '100px', md: '450px' }}
+        borderRadius={{ md: '20px 0px 0px 0px' }}
+        height={{ sm: '100%', md: '450px' }}
+        width={'100%'}
+        // width={'40vw'}
+        // height={'45vh'}
         component="img"
         src={Image}
       />

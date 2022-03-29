@@ -9,6 +9,7 @@ const Home = () => (
   <>
     <Box style={styles.container}>
       <Grid direction="column">
+        {/* box flex direction column */}
         <Appbar></Appbar>
         <Content></Content>
         <Footer></Footer>

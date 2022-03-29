@@ -1,5 +1,5 @@
-import { Box, Card, CardContent, Grid } from '@mui/material';
-// import CustomImage from './CustomImage';
+import { Box, Grid } from '@mui/material';
+import CustomImage from './CustomImage';
 import Calendar from './Calendar';
 import Category from './Category';
 
@@ -8,11 +8,22 @@ const content = () => {
     <>
       <Box sx={{ background: 'rgba(190, 212, 186,0.7)', minHeight: 'auto' }}>
         <Grid container direction={{ md: 'row', sm: 'column', xs: 'column' }}>
-          <Grid padding={2} container rowSpacing={2} item direction="column" xs={12} md={5}>
-            <Grid item>
-              <Card>
+          <Grid
+            padding={1}
+            alignItems={'center'}
+            container
+            rowSpacing={2}
+            item
+            // direction="column"
+            // columns={2}
+            // rows={2}
+            xs={12}
+            md={5}>
+            <Grid item sx={{ width: '100%' }}>
+              {/* <Card>
                 <CardContent>Custom Image</CardContent>
-              </Card>
+              </Card> */}
+              <CustomImage />
             </Grid>
             <Grid item>
               <Calendar />
