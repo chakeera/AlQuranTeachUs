@@ -18,7 +18,8 @@ const content = () => {
             // columns={2}
             // rows={2}
             xs={12}
-            md={5}>
+            md={5}
+          >
             <Grid item sx={{ width: '100%' }}>
               {/* <Card>
                 <CardContent>Custom Image</CardContent>

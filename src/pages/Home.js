@@ -1,19 +1,20 @@
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import Appbar from '../components/Home/Appbar';
-import Content from '../components/Home/Content';
+// import Content from '../components/Home/Content';
+import Content from '../components/Home/GridTest';
 import Footer from '../components/Home/Footer';
 import background from '../assets/images/background.png';
 
 const Home = () => (
   <>
     <Box style={styles.container}>
-      <Grid direction="column">
+      <Box sx={{ flexDirection: 'column' }}>
         {/* box flex direction column */}
         <Appbar></Appbar>
         <Content></Content>
         <Footer></Footer>
-      </Grid>
+      </Box>
     </Box>
   </>
 );
