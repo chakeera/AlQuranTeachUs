@@ -1,8 +1,7 @@
 import { Box } from '@mui/material';
 import './gridTest.css';
 import Calendar from './CalendarTest';
-import Image from '../../assets/images/customImage.png';
-// import TopHeader from '../../assets/images/topheader.png';
+import Image from '../../assets/images/600x400.jpg';
 import Category from './CategoryTest';
 
 const gridTest = () => {
