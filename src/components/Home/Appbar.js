@@ -18,7 +18,8 @@ const appBar = () => {
                 sm: 25,
                 xs: 15
               }
-            }}>
+            }}
+          >
             อัลกุรอานสอนเรา
           </Typography>
           <Box
@@ -37,7 +38,8 @@ const appBar = () => {
                 sm: 25,
                 xs: 15
               }
-            }}>
+            }}
+          >
             Al-Quran Teaches Us
           </Typography>
         </Toolbar>

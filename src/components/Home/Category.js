@@ -1,5 +1,6 @@
-import { Box, Toolbar } from '@mui/material';
-import './gridTest.css';
+import { Box } from '@mui/material';
+// import './gridTest.css';
+import './styles/category.css';
 import TopHeader from '../../assets/images/800x200.jpg';
 import box1 from '../../assets/images/200x200.jpg';
 import { Link } from 'react-router-dom';
@@ -7,9 +8,9 @@ import { Link } from 'react-router-dom';
 const category = () => {
   return (
     <>
-      <Box className="top-header" component="img" src={TopHeader} />
-      <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }} />
-      <Toolbar />
+      {/* Custom Header/Banner */}
+      <Box sx={{ my: 5 }} className="top-header" component="img" src={TopHeader} />
+
       <Box className="category-container">
         <Box className="category-item">
           <Link to="/Khutbah">

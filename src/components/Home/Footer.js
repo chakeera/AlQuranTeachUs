@@ -14,7 +14,8 @@ const footer = () => {
                 xs: 10
               }
             }}
-            color={'white'}>
+            color={'white'}
+          >
             อัลกุรอานสอนเรา Al-Quran Teaches Us
           </Typography>
           <Button
@@ -26,7 +27,8 @@ const footer = () => {
                 xs: 10
               },
               marginLeft: 'auto'
-            }}>
+            }}
+          >
             ADMIN
           </Button>
         </Toolbar>

@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 40% auto;
+    background: rgba(190, 212, 186,0.7);
+    padding: 20px;
+    gap: 40px;
+}
+
+.left-container {
+    display: grid;
+    gap: 10px;
+}
+
+.right-container {
+     justify-items: center;
+}
+.custom-image {
+    border-radius: 20px 0px 0px 0px;
+    width: 100%;
+    height: auto;
+}
+@media (max-width: 640px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .custom-image {
+        border-radius: 0px;
+    }
+}
