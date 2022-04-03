@@ -26,24 +26,29 @@
 
 .calendar-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
     gap: 10px;
     align-items: center;
 }
 
 .calendar-header-vertical {
     max-height: 300px;
+
 }
 
 .calendar-header-horizontal {
     display: none;
 }
 
+.calendar{
+    height: 100%;
+}
+
 .category-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
-     justify-items: center;
+    justify-items: center;
 }
 
 .category-item {
@@ -115,4 +120,43 @@
         max-height: 200px;
     }
 }
+
+
+/* new calendar */
+.responsive-calendar {
+    /* by setting font-size, all the elements will correspond */
+    font-size: 9px !important; /* default to 10px */
+    height: 100%;
+  }
+  
+  @media (max-width: 1500px) {
+    .responsive-calendar {
+      font-size: 7px !important;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .responsive-calendar {
+      font-size: 5px !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-calendar {
+      font-size: 4px !important;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .responsive-calendar {
+      font-size: 7px !important;
+    }
+  }
+  
+  /* Large screens
+  @media (min-width: 2500px) {
+    .responsive-calendar {
+      font-size: 12px !important;
+    }
+  } */
 
