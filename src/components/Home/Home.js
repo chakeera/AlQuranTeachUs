@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import Appbar from '../components/Home/Appbar';
-import Content from '../components/Home/Content';
-import Footer from '../components/Home/Footer';
-import background from '../assets/images/background.png';
+import Appbar from './Appbar';
+import Content from './Content';
+import Footer from './Footer';
+import background from '../../assets/images/background.png';
 
 const Home = () => (
   <>
