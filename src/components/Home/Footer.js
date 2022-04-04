@@ -26,6 +26,7 @@ const footer = () => {
           </Typography>
           {isHomePage ? (
             <Button
+              href="/login"
               variant="contained"
               sx={{
                 fontSize: {

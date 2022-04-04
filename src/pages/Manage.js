@@ -29,7 +29,8 @@ const manage = () => {
           sx={{
             background: theme.palette.primary.dark,
             zIndex: (theme) => theme.zIndex.drawer + 1
-          }}>
+          }}
+        >
           <Toolbar>
             <Typography color="white" variant="h5" noWrap component="div">
               อัลกุรอ่านสอนเรา อัลมุวาฮิด สำหรับแอดมิน
@@ -44,21 +45,24 @@ const manage = () => {
             width: 250,
             flexShrink: 0,
             [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box' }
-          }}>
+          }}
+        >
           <Toolbar />
           <Box
             sx={{
               background: theme.palette.primary.dark,
               overflow: 'auto',
               height: '100vh'
-            }}>
+            }}
+          >
             <List>
               {tabs.map((data) => (
                 <ListItem
                   sx={{ borderBottom: 1, borderColor: 'white' }}
                   onClick={() => setPage(data.page)}
                   button
-                  key={data.title}>
+                  key={data.title}
+                >
                   <ListItemText
                     sx={{
                       color: 'white'
