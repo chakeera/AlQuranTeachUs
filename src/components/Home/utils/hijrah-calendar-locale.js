@@ -65,7 +65,7 @@ const customLocale = {
       isWeekend: true
     }
   ],
-  weekStartingIndex: 0,
+  weekStartingIndex: 1,
 
   // return a { year: number, month: number, day: number } object
   getToday(gregorainTodayObject) {

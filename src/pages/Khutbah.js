@@ -2,7 +2,6 @@ import { Box, Button, Toolbar, Typography } from '@mui/material';
 import theme from '../core/theme';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import SelectScholarContent from '../components/ContentPage/SelectScholarContent';
-// import { Box } from '@mui/system';
 import background from '../assets/images/background.png';
 import Appbar from '../components/Home/Appbar';
 import Footer from '../components/Home/Footer';
@@ -56,7 +55,7 @@ const styles = {
     minHeight: '100vh',
     width: '100%',
     height: '100%',
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'scroll'
   }
 };
 export default khutbah;

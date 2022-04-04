@@ -1,6 +1,12 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const footer = () => {
+  let location = useLocation();
+  var isHomePage = true;
+  if (location.pathname !== '/') {
+    isHomePage = false;
+  }
   return (
     <>
       <AppBar position="static" sx={{ top: 'auto', bottom: 0, background: 'transparent' }}>
@@ -18,19 +24,21 @@ const footer = () => {
           >
             อัลกุรอานสอนเรา Al-Quran Teaches Us
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              fontSize: {
-                md: 15,
-                sm: 15,
-                xs: 10
-              },
-              marginLeft: 'auto'
-            }}
-          >
-            ADMIN
-          </Button>
+          {isHomePage ? (
+            <Button
+              variant="contained"
+              sx={{
+                fontSize: {
+                  md: 15,
+                  sm: 15,
+                  xs: 10
+                },
+                marginLeft: 'auto'
+              }}
+            >
+              ADMIN
+            </Button>
+          ) : null}
         </Toolbar>
       </AppBar>
     </>
