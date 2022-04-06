@@ -56,7 +56,8 @@ const addFile = (props) => {
             color: theme.palette.primary.dark,
             fontWeight: 'bolder',
             fontSize: 18
-          }}>
+          }}
+        >
           เพิ่มไฟล์
         </Typography>
       </Button>
@@ -66,7 +67,8 @@ const addFile = (props) => {
           key="bottomcenter"
           open={alert}
           autoHideDuration={5000}
-          onClose={handleClose}>
+          onClose={handleClose}
+        >
           <Alert severity="success" sx={{ width: '100%' }}>
             อัพเดดข้อมูล............
           </Alert>

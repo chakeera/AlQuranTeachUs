@@ -52,7 +52,8 @@ const addData = (props) => {
             key="bottomcenter"
             open={alert}
             autoHideDuration={5000}
-            onClose={handleClose}>
+            onClose={handleClose}
+          >
             <Alert severity="success" sx={{ width: '100%' }}>
               อัพเดดข้อมูล............
             </Alert>
@@ -75,7 +76,8 @@ const addData = (props) => {
                   width: 250,
                   backgroundColor: 'white'
                 }}
-                onChange={(event) => setScholar(event.target.value)}>
+                onChange={(event) => setScholar(event.target.value)}
+              >
                 <MenuItem value={'Hanafee'}>อ.ฮานาฟี</MenuItem>
                 <MenuItem value={'Ashabulyameen'}>อ.อัสฮาบุ้ลยามีน ปานนพภา</MenuItem>
                 {Category !== 'Tafseer' && <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>}
@@ -99,7 +101,8 @@ const addData = (props) => {
                       width: 250,
                       backgroundColor: 'white'
                     }}
-                    onChange={(event) => setCategory(event.target.value)}>
+                    onChange={(event) => setCategory(event.target.value)}
+                  >
                     <MenuItem value={'Tafseer'}>ตัฟซีร</MenuItem>
                     <MenuItem value={'Talk'}>บรรยาย</MenuItem>
                   </Select>
@@ -129,7 +132,8 @@ const addData = (props) => {
               <Button
                 type="submit"
                 sx={{ mt: 2, backgroundColor: theme.palette.primary.dark, color: 'white' }}
-                variant="contained">
+                variant="contained"
+              >
                 POST
               </Button>
             </FormControl>

@@ -7,28 +7,58 @@ import {
   Toolbar,
   Grid,
   Paper,
-  Alert
+  Alert,
+  CircularProgress
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import theme from '../core/theme';
 import { useNavigate } from 'react-router-dom';
+// import { app } from '../firebase/index';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import ArrowBack from '@mui/icons-material/ArrowBack';
 
 const login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const signIn = async (e) => {
+    const auth = getAuth();
     e.preventDefault();
-    if (email === process.env.REACT_APP_EMAIL && password === process.env.REACT_APP_PASSWORD) {
-      setIsError(false);
-      navigate('/manage', { replace: true });
-      console.log('pass');
-    } else {
-      setIsError(true);
-    }
+    setLoading(true);
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        setLoading(false);
+        setIsError(false);
+        navigate('/manage');
+        sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken);
+        console.log(response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setIsError(true);
+        console.log(error.code);
+      });
   };
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token');
+
+    if (authToken) {
+      navigate('/manage');
+    }
+  }, []);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (email === process.env.REACT_APP_EMAIL && password === process.env.REACT_APP_PASSWORD) {
+  //     setIsError(false);
+  //     navigate('/manage', { replace: true });
+  //     console.log('pass');
+  //   } else {
+  //     setIsError(true);
+  //   }
+  // };
 
   return (
     <>
@@ -54,6 +84,19 @@ const login = () => {
               spacing={2}
               sx={{ justifyContent: 'center', minHeight: '90vh' }}
             >
+              <Button
+                href="/"
+                sx={{
+                  mx: 2,
+                  my: 2,
+                  color: theme.palette.primary.dark,
+                  fontWeight: 'bolder',
+                  fontSize: 18
+                }}
+                variant="text"
+              >
+                <ArrowBack></ArrowBack>กลับหน้าหลัก
+              </Button>
               {isError ? <Alert severity="error">อีเมล์หรือรหัสไม่ถูกต้อง</Alert> : null}
               <Paper
                 variant="elevation"
@@ -68,7 +111,7 @@ const login = () => {
                 }}
               >
                 <Grid item>
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={signIn}>
                     <Grid container direction="column" spacing={2}>
                       <Grid item>
                         <TextField
@@ -102,6 +145,7 @@ const login = () => {
                           type="submit"
                           sx={{ backgroundColor: theme.palette.primary.dark, color: 'white' }}
                         >
+                          {loading && <CircularProgress sx={{ mr: 2 }} size={20} />}
                           Log in
                         </Button>
                       </Grid>

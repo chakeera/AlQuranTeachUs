@@ -11,8 +11,8 @@ const Friday = () => {
       <Button
         href="/"
         sx={{ mx: 2, my: 2, color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
-        variant="text">
-        {' '}
+        variant="text"
+      >
         <ArrowBack></ArrowBack>กลับหน้าหลัก
       </Button>
       <Typography
@@ -22,7 +22,8 @@ const Friday = () => {
           color: theme.palette.primary.dark,
           fontWeight: 'bolder',
           fontSize: 24
-        }}>
+        }}
+      >
         คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน
       </Typography>
       <Box sx={{ textAlign: 'center' }}>

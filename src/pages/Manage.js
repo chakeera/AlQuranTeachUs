@@ -7,19 +7,56 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  Box
+  Box,
+  CircularProgress
 } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/ManageData/ManageTabs';
 import tabs from '../components/DataUtils/TabsData';
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 // import { connect } from 'react-redux';
 
 const manage = () => {
   const [page, setPage] = useState(
     <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   );
+  const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token');
+
+    if (authToken) {
+      navigate('/manage');
+    }
+
+    if (!authToken) {
+      navigate('/login');
+    }
+  }, []);
+
+  const logout = async () => {
+    const auth = getAuth();
+    setLoading(true);
+    await signOut(auth).then(() => {
+      setLoading(false);
+      sessionStorage.removeItem('Auth Token');
+      navigate('/login');
+    });
+  };
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token');
+    console.log(authToken);
+    if (authToken) {
+      navigate('/manage');
+    }
+
+    if (!authToken) {
+      navigate('/login');
+    }
+  }, []);
 
   return (
     <>
@@ -71,6 +108,15 @@ const manage = () => {
                   />
                 </ListItem>
               ))}
+              <ListItem sx={{ borderBottom: 1, borderColor: 'white' }} onClick={logout} button>
+                <ListItemText
+                  sx={{
+                    color: 'white'
+                  }}
+                  primary="Log Out"
+                />
+                {loading && <CircularProgress sx={{ mr: 2 }} size={20} />}
+              </ListItem>
             </List>
           </Box>
         </Drawer>
