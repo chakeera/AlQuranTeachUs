@@ -1,6 +1,10 @@
 import ManageTabs from '../ManageData/ManageTabs';
 const tabs = [
   {
+    title: 'Images',
+    page: <ManageTabs value="Images" title="รูปภาพ" />
+  },
+  {
     title: 'Khutbah',
     page: <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   },

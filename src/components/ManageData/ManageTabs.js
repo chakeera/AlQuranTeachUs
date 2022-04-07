@@ -6,6 +6,7 @@ import SelectScholar from './SelectScholar';
 import AddFolder from './AddFolder';
 import AddSingleFileData from './AddSingleFileData';
 import DisplaySingleData from './DisplaySingleData';
+import AddCustomImage from './AddCustomImage';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -20,18 +21,34 @@ const ManageTabs = (props) => {
       </Typography>
       <Box>
         <AppBar elevation={0} position="static">
-          <Tabs
-            value={tabIndex}
-            onChange={handleChange}
-            TabIndicatorProps={{ style: { background: theme.palette.primary.dark } }}
-            textColor="inherit"
-            variant="fullWidth"
-            aria-label="full width tabs example">
-            <Tab label="จัดการและแก้ไข" />
-            <Tab label="เพิ่มเนื้อหา" />
-          </Tabs>
+          {props.value === 'Images' ? (
+            <Tabs
+              value={tabIndex}
+              onChange={handleChange}
+              TabIndicatorProps={{ style: { background: theme.palette.primary.dark } }}
+              textColor="inherit"
+              variant="fullWidth"
+              aria-label="full width tabs example"
+            >
+              <Tab label="รูปภาพ 1" />
+              <Tab label="รูปข่าวสาร" />
+            </Tabs>
+          ) : (
+            <Tabs
+              value={tabIndex}
+              onChange={handleChange}
+              TabIndicatorProps={{ style: { background: theme.palette.primary.dark } }}
+              textColor="inherit"
+              variant="fullWidth"
+              aria-label="full width tabs example"
+            >
+              <Tab label="จัดการและแก้ไข" />
+              <Tab label="เพิ่มเนื้อหา" />
+            </Tabs>
+          )}
         </AppBar>
       </Box>
+      {props.value === 'Images' && tabIndex === 0 && <AddCustomImage />}
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
         <AddSingleFileData key={props.value} category={props.value} />
       )}

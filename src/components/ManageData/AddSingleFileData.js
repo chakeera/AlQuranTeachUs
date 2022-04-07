@@ -33,7 +33,8 @@ const addSingleFileData = (props) => {
             key="bottomcenter"
             open={alert}
             autoHideDuration={5000}
-            onClose={handleClose}>
+            onClose={handleClose}
+          >
             <Alert severity="success" sx={{ width: '100%' }}>
               อัพเดดข้อมูล............
             </Alert>
@@ -57,7 +58,8 @@ const addSingleFileData = (props) => {
               <Button
                 type="submit"
                 sx={{ mt: 2, backgroundColor: theme.palette.primary.dark, color: 'white' }}
-                variant="contained">
+                variant="contained"
+              >
                 POST
               </Button>
               <Toolbar />
