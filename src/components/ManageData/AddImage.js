@@ -13,7 +13,7 @@ import theme from '../../core/theme';
 import { db, storage } from '../../firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
-const addCustomImage = () => {
+const addCustomImage = (prop) => {
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState('');
   const [filepath, setFilepath] = useState('');
@@ -21,7 +21,7 @@ const addCustomImage = () => {
   const [uploading, setUploading] = useState(false);
 
   const getExistedImage = async () => {
-    const docRef = doc(db, 'Images', 'customImage');
+    const docRef = doc(db, 'Images', prop.photoType);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUrl(docSnap.data().url);
@@ -43,7 +43,7 @@ const addCustomImage = () => {
     const desertRef = ref(storage, filepath);
     deleteObject(desertRef)
       .then(() => {
-        const firestoreRef = doc(db, 'Images', 'customImage');
+        const firestoreRef = doc(db, 'Images', prop.photoType);
         setDoc(firestoreRef, { url: '', filepath: '' });
         setUrl('');
         setLoading(false);
@@ -76,7 +76,7 @@ const addCustomImage = () => {
   };
 
   const addUrlToFirestore = (url, file) => {
-    const firestoreRef = doc(db, 'Images', 'customImage');
+    const firestoreRef = doc(db, 'Images', prop.photoType);
     setDoc(firestoreRef, { url: url, filepath: `images/${file.name}` });
     setUploading(false);
   };
@@ -84,9 +84,15 @@ const addCustomImage = () => {
   useEffect(() => getExistedImage(), []);
   return (
     <>
-      <Box display="flex" sx={{ backgroundColor: theme.palette.secondary.main }}>
+      <Box textAlign="center" display="flex" sx={{ backgroundColor: theme.palette.secondary.main }}>
         <Box mx="auto">
           <Toolbar />
+          {prop.photoType === 'customImage' ? (
+            <Typography>รูปภาพมุมขวา</Typography>
+          ) : (
+            <Typography>รูปภาพข่าวสาร</Typography>
+          )}
+          <Typography></Typography>
           <Grid my={2} alignItems="center" spacing={6} container direction="row">
             <Grid sx={{ color: '#5CFF5C' }} xs item>
               <LinearProgress color="inherit" value={progress} variant="determinate" />

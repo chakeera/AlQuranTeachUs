@@ -6,7 +6,7 @@ import SelectScholar from './SelectScholar';
 import AddFolder from './AddFolder';
 import AddSingleFileData from './AddSingleFileData';
 import DisplaySingleData from './DisplaySingleData';
-import AddCustomImage from './AddCustomImage';
+import AddImage from './AddImage';
 
 const ManageTabs = (props) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -48,7 +48,9 @@ const ManageTabs = (props) => {
           )}
         </AppBar>
       </Box>
-      {props.value === 'Images' && tabIndex === 0 && <AddCustomImage />}
+      {props.value === 'Images' && tabIndex === 0 && <AddImage photoType="customImage" />}
+      {props.value === 'Images' && tabIndex === 1 && <AddImage photoType="topContent" />}
+
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
         <AddSingleFileData key={props.value} category={props.value} />
       )}
