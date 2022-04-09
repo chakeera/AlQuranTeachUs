@@ -12,7 +12,8 @@ const fileView = (props) => {
         <Button
           sx={{ mt: 6, mx: 2, mb: 2 }}
           variant="text"
-          onClick={() => props.setFolderClick(false)}>
+          onClick={() => props.setFolderClick(false)}
+        >
           <ArrowBack />
           <Typography
             sx={{
@@ -21,7 +22,8 @@ const fileView = (props) => {
               color: theme.palette.primary.dark,
               fontWeight: 'bolder',
               fontSize: 18
-            }}>
+            }}
+          >
             กลับ
           </Typography>
         </Button>
@@ -59,7 +61,8 @@ const fileView = (props) => {
                             {file.name}
                           </Typography>
                         </Button>
-                      }></CardHeader>
+                      }
+                    ></CardHeader>
                   </Card>
                 </Grid>
               ))}

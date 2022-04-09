@@ -13,7 +13,7 @@ import theme from '../../core/theme';
 import { db, storage } from '../../firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
-const addCustomImage = (prop) => {
+const addCustomImage = (props) => {
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState('');
   const [filepath, setFilepath] = useState('');
@@ -21,7 +21,7 @@ const addCustomImage = (prop) => {
   const [uploading, setUploading] = useState(false);
 
   const getExistedImage = async () => {
-    const docRef = doc(db, 'Images', prop.photoType);
+    const docRef = doc(db, 'Images', props.photoType);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUrl(docSnap.data().url);
@@ -43,7 +43,7 @@ const addCustomImage = (prop) => {
     const desertRef = ref(storage, filepath);
     deleteObject(desertRef)
       .then(() => {
-        const firestoreRef = doc(db, 'Images', prop.photoType);
+        const firestoreRef = doc(db, 'Images', props.photoType);
         setDoc(firestoreRef, { url: '', filepath: '' });
         setUrl('');
         setLoading(false);
@@ -76,7 +76,7 @@ const addCustomImage = (prop) => {
   };
 
   const addUrlToFirestore = (url, file) => {
-    const firestoreRef = doc(db, 'Images', prop.photoType);
+    const firestoreRef = doc(db, 'Images', props.photoType);
     setDoc(firestoreRef, { url: url, filepath: `images/${file.name}` });
     setUploading(false);
   };
@@ -87,7 +87,7 @@ const addCustomImage = (prop) => {
       <Box textAlign="center" display="flex" sx={{ backgroundColor: theme.palette.secondary.main }}>
         <Box mx="auto">
           <Toolbar />
-          {prop.photoType === 'customImage' ? (
+          {props.photoType === 'customImage' ? (
             <Typography>รูปภาพมุมขวา</Typography>
           ) : (
             <Typography>รูปภาพข่าวสาร</Typography>

@@ -37,12 +37,14 @@ const folderView = (props) => {
                       onClick={() => {
                         props.setFolderClick(true);
                         props.setIndex(index);
-                      }}>
+                      }}
+                    >
                       <Typography sx={{ width: 150 }} noWrap color={theme.palette.primary.dark}>
                         {folder}
                       </Typography>
                     </Button>
-                  }></CardHeader>
+                  }
+                ></CardHeader>
               </Card>
             </Grid>
           ))}

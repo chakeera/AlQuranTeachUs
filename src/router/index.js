@@ -4,7 +4,7 @@ import Jummah from '../pages/Jummah.js';
 import Khutbah from '../pages/Khutbah.js';
 import Manage from '../pages/Manage.js';
 import Login from '../pages/Login.js';
-import DisplayFolder from '../components/ContentPage/DisplayFolders';
+import Content from '../components/ContentPage/ContentPage';
 
 const router = () => (
   <BrowserRouter>
@@ -12,7 +12,7 @@ const router = () => (
       <Route exact path="/" element={<Home />} />
       <Route path="/Jummah" element={<Jummah />} />
       <Route path="/Khutbah" element={<Khutbah />} />
-      <Route path="/Khutbah/:scholar" element={<DisplayFolder category="Khutbah" />} />
+      <Route path="/Khutbah/:scholar" element={<Content category="Khutbah" />} />
       <Route path="/manage" element={<Manage />} />
       <Route path="/login" element={<Login />} />
     </Routes>
