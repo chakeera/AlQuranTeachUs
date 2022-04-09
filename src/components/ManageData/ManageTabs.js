@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import theme from '../../core/theme';
 import SelectScholar from './SelectScholar';
 import AddFolder from './AddFolder';
-import AddSingleFileData from './AddSingleFileData';
-import DisplaySingleData from './DisplaySingleData';
+import AddSingleFile from './AddSingleFile';
+import DisplaySingleFile from './DisplaySingleFile';
 import AddImage from './AddImage';
 
 const ManageTabs = (props) => {
@@ -52,10 +52,10 @@ const ManageTabs = (props) => {
       {props.value === 'Images' && tabIndex === 1 && <AddImage photoType="topContent" />}
 
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 1 && (
-        <AddSingleFileData key={props.value} category={props.value} />
+        <AddSingleFile key={props.value} category={props.value} />
       )}
       {(props.value === 'Quran' || props.value === 'Evidence') && tabIndex === 0 && (
-        <DisplaySingleData key={props.value} category={props.value} />
+        <DisplaySingleFile key={props.value} category={props.value} />
       )}
       {(props.value === 'Khutbah' ||
         props.value === 'Tafseer' ||

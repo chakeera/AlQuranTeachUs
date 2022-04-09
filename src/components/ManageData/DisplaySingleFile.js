@@ -61,7 +61,8 @@ const displaySingleData = (props) => {
                             {data.fileName}
                           </Typography>
                         </Button>
-                      }></CardHeader>
+                      }
+                    ></CardHeader>
                   </Card>
                 </Grid>
               ))}
