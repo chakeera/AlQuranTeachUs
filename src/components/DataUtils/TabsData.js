@@ -1,4 +1,4 @@
-import ManageTabs from '../ManageData/ManageTabs';
+import ManageTabs from '../AdminSide/ManageTabs';
 const tabs = [
   {
     title: 'Images',

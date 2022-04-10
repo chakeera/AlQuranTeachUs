@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
-import verticalHeader from '../../assets/images/calendar-header-vertical.png';
-import horizontalHeader from '../../assets/images/calendar-header-horizontal.png';
-import './styles/calendar.css';
+import verticalHeader from '../../../assets/images/calendar-header-vertical.png';
+import horizontalHeader from '../../../assets/images/calendar-header-horizontal.png';
+import './calendar.css';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar } from 'react-modern-calendar-datepicker';
 import {
@@ -10,7 +10,7 @@ import {
   endingYear,
   hijiriValue,
   startingYear
-} from './utils/hijrah-calendar-locale';
+} from './hijrah-calendar-locale';
 
 const calendar = () => {
   return (

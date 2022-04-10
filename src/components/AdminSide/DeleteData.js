@@ -44,7 +44,8 @@ const deleteData = (props) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description">
+        aria-describedby="alert-dialog-description"
+      >
         <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -55,13 +56,15 @@ const deleteData = (props) => {
         <DialogActions>
           <Button
             sx={{ color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             ยกเลิก
           </Button>
           <Button
             sx={{ color: theme.palette.primary.dark, fontWeight: 'bolder', fontSize: 18 }}
             onClick={handleDelete}
-            autoFocus>
+            autoFocus
+          >
             ตกลง
           </Button>
         </DialogActions>

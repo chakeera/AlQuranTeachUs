@@ -1,8 +1,8 @@
-.select-scholar-container{
+.khutbah-container{
     background:rgba(190, 212, 186,0.7);
 }
 
-.select-scholar-grid-container{
+.khutbah-grid-container{
     display: grid;
     grid-template-columns: 1fr 1fr ;
     justify-items: center;
@@ -10,7 +10,7 @@
     gap: 10px;
 }
 
-.select-scholar-item{
+.khutbah-item{
     text-align: center;
     border-radius: 20px;
     margin: 10px;
@@ -23,18 +23,5 @@
     width: 100%;
     height: 100%;
     border-radius: 20px;
-}
-
-@media (max-width: 640px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .item {
-        max-width: 150px;
-    }   
 }
 

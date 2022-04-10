@@ -1,6 +1,6 @@
 import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import theme from '../../core/theme';
+import theme from '../../../core/theme';
 import './folderView.css';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import FolderIcon from '@mui/icons-material/Folder';

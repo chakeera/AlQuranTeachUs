@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { Box } from '@mui/system';
 import { Container, Typography } from '@mui/material';
 // import FolderView from '../ManageData/FolderView';
-import FolderView from '../ContentPage/ContentFolderView';
-import FileView from '../ContentPage/ContentFileView';
+import FolderView from './FolderView';
+import FileView from './FileView';
 
 const displayFolders = (props) => {
   const [isFolderClick, setFolderClick] = useState(false);

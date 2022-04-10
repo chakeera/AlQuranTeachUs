@@ -1,11 +1,11 @@
 import { Box, Skeleton } from '@mui/material';
 // import './gridTest.css';
-import './styles/category.css';
+import './category.css';
 // import TopHeader from '../../assets/images/800x200.jpg';
-import box1 from '../../assets/images/200x200.jpg';
+import box1 from '../../../assets/images/200x200.jpg';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
 const category = () => {

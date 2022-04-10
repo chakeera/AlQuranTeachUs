@@ -28,7 +28,8 @@ const selectScholar = (props) => {
               }}
               onChange={(event) => {
                 setScholar(event.target.value);
-              }}>
+              }}
+            >
               <MenuItem value={'Hanafee'}>อ.ฮานาฟี</MenuItem>
               <MenuItem value={'Ashabulyameen'}>อ.อัสฮาบุ้ลยามีน ปานนพภา</MenuItem>
               <MenuItem value={'Khalid'}>อ.คอลิด อารีบี </MenuItem>
@@ -51,7 +52,8 @@ const selectScholar = (props) => {
                     borderRadius: 2,
                     width: 250
                   }}
-                  onChange={(event) => setCategory(event.target.value)}>
+                  onChange={(event) => setCategory(event.target.value)}
+                >
                   <MenuItem value={'Tafseer'}>ตัฟซีร</MenuItem>
                   <MenuItem value={'Talk'}>บรรยาย</MenuItem>
                 </Select>

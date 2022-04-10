@@ -1,10 +1,10 @@
 import { Box, Skeleton } from '@mui/material';
-import './styles/content.css';
+import './content.css';
 import Calendar from './Calendar';
 // import Image from '../../assets/images/600x400.jpg';
 import Category from './Category';
 import { useEffect, useState } from 'react';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
 const gridTest = () => {
