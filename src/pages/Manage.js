@@ -13,7 +13,8 @@ import {
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
-import ManageTabs from '../components/AdminSide/ManageTabs';
+// import ManageTabs from '../components/AdminSide/ManageTabs';
+import AddExternalLinks from '../components/AdminSide/AddExternalLinks';
 import tabs from '../components/Data/TabsData';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
@@ -21,7 +22,8 @@ import { getAuth, signOut } from 'firebase/auth';
 
 const manage = () => {
   const [page, setPage] = useState(
-    <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
+    <AddExternalLinks />
+    // <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   );
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();

@@ -1,23 +1,23 @@
 const initState = {
-  reduxTestDummyCollection: [
-    {
-      id: '1',
-      folderName: 'foldername1',
-      file: [
-        { id: '1', name: 'file1', link: 'link1' },
-        { id: '2', name: 'file2', link: 'link2' }
-      ]
-    },
-    {
-      id: '2',
-      folderName: 'foldername2foldername1foldername1',
-      file: [
-        { id: '1', name: 'file1', link: 'link1' },
-        { id: '2', name: 'file2', link: 'link2' },
-        { id: '3', name: 'file3', link: 'link3' }
-      ]
-    }
-  ]
+  // reduxTestDummyCollection: [
+  //   {
+  //     id: '1',
+  //     folderName: 'foldername1',
+  //     file: [
+  //       { id: '1', name: 'file1', link: 'link1' },
+  //       { id: '2', name: 'file2', link: 'link2' }
+  //     ]
+  //   },
+  //   {
+  //     id: '2',
+  //     folderName: 'foldername2',
+  //     file: [
+  //       { id: '1', name: 'file1', link: 'link1' },
+  //       { id: '2', name: 'file2', link: 'link2' },
+  //       { id: '3', name: 'file3', link: 'link3' }
+  //     ]
+  //   }
+  // ]
 };
 // eslint-disable-next-line no-unused-vars
 const addDataReducer = (state = initState, action) => {
@@ -33,6 +33,12 @@ const addDataReducer = (state = initState, action) => {
       return state;
     case 'CREATE_SINGLE_ERR':
       console.log('created single data error', action.error);
+      return state;
+    case 'CREATE_EXTERNAL_LINK':
+      console.log('created external link ', action.data);
+      return state;
+    case 'CREATE_EXTERNAL_LINK_ERR':
+      console.log('created  external link error', action.error);
       return state;
     case 'ADD_FILE':
       console.log('add file', action.data);

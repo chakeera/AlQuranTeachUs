@@ -5,7 +5,8 @@ import {
   doc,
   arrayUnion,
   arrayRemove,
-  deleteDoc
+  deleteDoc,
+  setDoc
 } from 'firebase/firestore';
 
 const createData = (data) => {
@@ -88,4 +89,19 @@ const deleteFile = (data) => {
   };
 };
 
-export { createData, createSingleData, addNewFile, deleteFolder, deleteFile };
+const createExternalLink = (data) => {
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const firestoreRef = doc(firestore, data.collection, data.type);
+    setDoc(firestoreRef, { link: data.link })
+      .then(() => {
+        dispatch({ type: 'CREATE_EXTERNAL_LINK', data: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'CREATE_EXTERNAL_LINK_ERR', error: error });
+      });
+  };
+};
+
+export { createData, createSingleData, addNewFile, deleteFolder, deleteFile, createExternalLink };

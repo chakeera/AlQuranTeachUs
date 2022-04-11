@@ -1,5 +1,7 @@
 import ManageTabs from '../AdminSide/ManageTabs';
+import AddExternalLinks from '../AdminSide/AddExternalLinks';
 const tabs = [
+  { title: 'External Link', page: <AddExternalLinks /> },
   {
     title: 'Images',
     page: <ManageTabs value="Images" title="รูปภาพ" />

@@ -7,22 +7,41 @@ import { db } from '../../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
 const category = () => {
-  const [url, setUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [fbLinkUrl, setFBLinkUrl] = useState('');
+  const [mkLinkUrl, setMKLinkUrl] = useState('');
   const getExistedImage = async () => {
     const docRef = doc(db, 'Images', 'topContent');
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setUrl(docSnap.data().url);
+      setImageUrl(docSnap.data().url);
     } else {
       console.log('No such document!');
     }
   };
 
-  useEffect(() => getExistedImage(), []);
+  const getLink = async () => {
+    const mkDocRef = doc(db, 'ExternalLink', 'makkah');
+    const mkDocSnap = await getDoc(mkDocRef);
+    const fbDocRef = doc(db, 'ExternalLink', 'facebook');
+    const fbDocSnap = await getDoc(fbDocRef);
+    if (fbDocSnap.exists()) {
+      setFBLinkUrl(fbDocSnap.data().link);
+    } else {
+      console.log('No such document!');
+    }
+    if (mkDocSnap.exists()) {
+      setMKLinkUrl(mkDocSnap.data().link);
+    } else {
+      console.log('No such document!');
+    }
+  };
+
+  useEffect(() => (getExistedImage(), getLink()), []);
   return (
     <>
       {/* Custom Header/Banner */}
-      {url === '' ? (
+      {imageUrl === '' ? (
         <Skeleton
           className="top-header"
           sx={{ bgcolor: 'grey', my: 5 }}
@@ -31,18 +50,18 @@ const category = () => {
           height={200}
         />
       ) : (
-        <Box sx={{ my: 5 }} className="top-header" component="img" src={url} />
+        <Box sx={{ my: 5 }} className="top-header" component="img" src={imageUrl} />
       )}
       <Box className="category-container">
         <Box className="category-item">
-          <Link to="/">
+          <a href={fbLinkUrl}>
             <img className="img" src={box1} />
-          </Link>
+          </a>
         </Box>
         <Box className="category-item">
-          <Link to="/">
+          <a href={mkLinkUrl}>
             <img className="img" src={box1} />
-          </Link>
+          </a>
         </Box>
         <Box className="category-item">
           <Link to="/Khutbah">
