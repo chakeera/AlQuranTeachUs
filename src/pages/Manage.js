@@ -14,7 +14,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import ManageTabs from '../components/AdminSide/ManageTabs';
-import tabs from '../components/DataUtils/TabsData';
+import tabs from '../components/Data/TabsData';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 // import { connect } from 'react-redux';

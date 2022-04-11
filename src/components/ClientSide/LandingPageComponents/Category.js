@@ -1,7 +1,5 @@
 import { Box, Skeleton } from '@mui/material';
-// import './gridTest.css';
 import './category.css';
-// import TopHeader from '../../assets/images/800x200.jpg';
 import box1 from '../../../assets/images/200x200.jpg';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -10,14 +8,11 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const category = () => {
   const [url, setUrl] = useState('');
-  // const [filepath, setFilepath] = useState('');
-
   const getExistedImage = async () => {
     const docRef = doc(db, 'Images', 'topContent');
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUrl(docSnap.data().url);
-      // setFilepath(docSnap.data().filepath);
     } else {
       console.log('No such document!');
     }

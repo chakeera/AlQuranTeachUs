@@ -1,9 +1,9 @@
 import { Box } from '@mui/system';
 import { useParams } from 'react-router-dom';
-import background from '../../assets/images/background.png';
-import Appbar from '../SharedComponents/Appbar';
-import Footer from '../SharedComponents/Footer';
-import DisplayFolders from '../ClientSide/OtherPageComponents/DisplayFolders';
+import background from '../../../assets/images/background.png';
+import Appbar from '../../SharedComponents/Appbar';
+import Footer from '../../SharedComponents/Footer';
+import DisplayFolders from './DisplayFolders';
 
 const contentPage = (props) => {
   const { scholar } = useParams();

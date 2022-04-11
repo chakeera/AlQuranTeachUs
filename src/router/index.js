@@ -6,7 +6,7 @@ import Manage from '../pages/Manage.js';
 import Facebook from '../pages/Facebook.js';
 import Youtube from '../pages/Youtube.js';
 import Login from '../pages/Login.js';
-import Content from '../components/ContentPage/ContentPage';
+import Content from '../components/ClientSide/OtherPageComponents/ContentPage';
 import SelectCategory from '../components/ClientSide/OtherPageComponents/SelectCategory.js';
 import DisplaySingleFile from '../components/ClientSide/OtherPageComponents/DisplaySingleFile.js';
 
