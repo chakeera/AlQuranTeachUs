@@ -3,10 +3,12 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { Box } from '@mui/system';
-import { Container, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 // import FolderView from '../ManageData/FolderView';
 import FolderView from './FolderView';
 import FileView from './FileView';
+import theme from '../../../core/theme';
+import { ArrowBack } from '@mui/icons-material';
 
 const displayFolders = (props) => {
   const [isFolderClick, setFolderClick] = useState(false);
@@ -29,7 +31,21 @@ const displayFolders = (props) => {
   return (
     <>
       {folderName.length === 0 ? (
-        <Box height="80vh" sx={{ background: 'rgba(190, 212, 186,0.7)' }} display="flex">
+        <Box height="80vh" sx={{ background: 'rgba(190, 212, 186,0.7)' }}>
+          <Button
+            href="/"
+            sx={{
+              mx: 2,
+              mt: { xs: 2, md: 4 },
+              mb: { xs: 2, md: 0 },
+              color: theme.palette.primary.dark,
+              fontWeight: 'bolder',
+              fontSize: 18
+            }}
+            variant="text"
+          >
+            <ArrowBack></ArrowBack>กลับหน้าหลัก
+          </Button>
           {/* when database is empty */}
           <Box m="auto">
             <Container>

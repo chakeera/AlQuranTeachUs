@@ -1,17 +1,14 @@
 import { ArrowBack } from '@mui/icons-material';
-import { Box, Button, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import background from '../assets/images/background.png';
 import Appbar from '../components/SharedComponents/Appbar';
 import Footer from '../components/SharedComponents/Footer';
+import Facebook from '../assets/images/facebook.jpg';
 import theme from '../core/theme';
-import Jummah from '../assets/images/jummah1.jpg';
-import Jummah2 from '../assets/images/jummah2.jpg';
-import Jummah3 from '../assets/images/jummah3.png';
-import Jummah4 from '../assets/images/jummah4.jpg';
-import './pages.css';
 
-const khutbah = () => {
+const facebook = () => {
   return (
     <>
       <Box style={styles.container}>
@@ -41,37 +38,32 @@ const khutbah = () => {
                 mb: 2
               }}
             >
-              คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน
+              Facebook ตัฟซีรอัลกุรอาน
             </Typography>
-            <Box className="grid-container">
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Hanafee">
-                  <img className="img" src={Jummah} />
+
+            <Box className="tafseer-grid-container">
+              <Box className="tafseer-item">
+                <Link to="/Facebook/Hanafee">
+                  <img className="img" src={Facebook} />
                 </Link>
                 <Typography>โดย อ.ฮานาฟี อามีน</Typography>
               </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Ashabulyameen">
-                  <img className="img" src={Jummah2} />
+              <Box className="tafseer-item">
+                <Link to="/Facebook/Ashabulyameen">
+                  <img className="img" src={Facebook} />
                 </Link>
                 <Typography>โดย อ.อัสฮาบุ้ลยามีน ปานนพภา</Typography>
               </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Khalid">
-                  <img className="img" src={Jummah3} />
+              <Box className="tafseer-item">
+                <Link to="/Facebook/Other">
+                  <img className="img" src={Facebook} />
                 </Link>
-                <Typography>โดย อ.คอลิด อารีบี</Typography>
-              </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Other">
-                  <img className="img" src={Jummah4} />
-                </Link>
-                <Typography>คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน อื่นๆ</Typography>
+                <Typography>ตัฟซีรอัลกุรอานอื่นๆ</Typography>
               </Box>
             </Box>
           </Box>
+          <Footer />
         </Box>
-        <Footer />
       </Box>
     </>
   );
@@ -89,4 +81,5 @@ const styles = {
     backgroundAttachment: 'fixed'
   }
 };
-export default khutbah;
+
+export default facebook;

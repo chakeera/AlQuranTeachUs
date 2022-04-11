@@ -4,9 +4,24 @@ import theme from '../../../core/theme';
 import './folderView.css';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import FolderIcon from '@mui/icons-material/Folder';
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 const contentFolderView = (props) => {
+  const location = useLocation();
+  var returnPath = '/';
+  if (location.pathname.includes('Khutbah')) {
+    returnPath = '/Khutbah';
+  }
+  if (location.pathname.includes('Tafseer') || location.pathname.includes('Talk')) {
+    returnPath = '/TafseerTalk';
+  }
+  if (location.pathname.includes('Facebook')) {
+    returnPath = '/Facebook';
+  }
+  if (location.pathname.includes('Youtube')) {
+    returnPath = '/Youtube';
+  }
   const [searchInput, setSearchInput] = useState('');
   const inputHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
@@ -32,7 +47,7 @@ const contentFolderView = (props) => {
         >
           <Grid item>
             <Button
-              href="/Khutbah"
+              href={returnPath}
               sx={{
                 mx: 2,
                 mt: { xs: 2, md: 4 },

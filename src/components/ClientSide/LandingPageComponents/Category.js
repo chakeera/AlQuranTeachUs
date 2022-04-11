@@ -40,42 +40,42 @@ const category = () => {
       )}
       <Box className="category-container">
         <Box className="category-item">
+          <Link to="/">
+            <img className="img" src={box1} />
+          </Link>
+        </Box>
+        <Box className="category-item">
+          <Link to="/">
+            <img className="img" src={box1} />
+          </Link>
+        </Box>
+        <Box className="category-item">
           <Link to="/Khutbah">
             <img className="img" src={box1} />
           </Link>
         </Box>
         <Box className="category-item">
-          <Link to="/">
+          <Link to="/TafseerTalk">
             <img className="img" src={box1} />
           </Link>
         </Box>
         <Box className="category-item">
-          <Link to="/">
+          <Link to="/Facebook">
             <img className="img" src={box1} />
           </Link>
         </Box>
         <Box className="category-item">
-          <Link to="/">
+          <Link to="/Youtube">
             <img className="img" src={box1} />
           </Link>
         </Box>
         <Box className="category-item">
-          <Link to="/">
+          <Link to="/Quran">
             <img className="img" src={box1} />
           </Link>
         </Box>
         <Box className="category-item">
-          <Link to="/">
-            <img className="img" src={box1} />
-          </Link>
-        </Box>
-        <Box className="category-item">
-          <Link to="/">
-            <img className="img" src={box1} />
-          </Link>
-        </Box>
-        <Box className="category-item">
-          <Link to="/">
+          <Link to="/Evidence">
             <img className="img" src={box1} />
           </Link>
         </Box>
