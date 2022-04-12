@@ -1,10 +1,21 @@
-import { Avatar, Box, Button, Card, CardHeader, Container, Grid, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  Container,
+  Grid,
+  TextField,
+  Typography
+} from '@mui/material';
 import theme from '../../core/theme';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import DeleteData from './DeleteData';
+import { useState } from 'react';
 
 const displaySingleData = (props) => {
   var folder = [];
@@ -20,6 +31,21 @@ const displaySingleData = (props) => {
     Object.keys(data).map((key) => docId.push(key));
   }
 
+  const [searchInput, setSearchInput] = useState('');
+
+  const inputHandler = (e) => {
+    var lowerCase = e.target.value.toLowerCase();
+    setSearchInput(lowerCase);
+  };
+
+  const filteredData = folder.filter((el) => {
+    if (searchInput === '') {
+      return el;
+    } else {
+      return el.fileName.toLowerCase().includes(searchInput);
+    }
+  });
+
   return (
     <>
       {folder.length === 0 ? (
@@ -34,9 +60,25 @@ const displaySingleData = (props) => {
         </Box>
       ) : (
         <Box display="flex" sx={{ backgroundColor: theme.palette.secondary.main }}>
-          <Container sx={{ mx: 5, my: 5 }}>
+          <Container sx={{ mx: 3, my: 2 }}>
+            <Box sx={{ my: 2 }}>
+              <TextField
+                onChange={inputHandler}
+                label="ค้นหา......"
+                InputLabelProps={{
+                  style: { color: theme.palette.primary.dark }
+                }}
+                sx={{
+                  mx: 4,
+                  mt: { xs: 2, md: 2 },
+                  mb: { xs: 2, md: 0 },
+                  width: 250,
+                  borderRadius: 2
+                }}
+              />
+            </Box>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {folder.map((data, index) => (
+              {filteredData.map((data, index) => (
                 <Grid key={index} item xs={12} md={4}>
                   <Card sx={{ width: '275px', display: 'flex' }}>
                     <CardHeader

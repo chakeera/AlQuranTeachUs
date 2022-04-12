@@ -30,6 +30,7 @@ const deleteData = (props) => {
     if (props.type === 'file') {
       props.deleteFile({ docId: props.docId, collection: props.collection, file: props.data });
     }
+    setOpen(false);
   };
 
   return (

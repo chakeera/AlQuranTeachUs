@@ -5,9 +5,9 @@ import {
   DialogContent,
   TextField,
   DialogActions,
-  Typography,
-  Snackbar,
-  Alert
+  Typography
+  // Snackbar,
+  // Alert
 } from '@mui/material';
 import { useState } from 'react';
 import theme from '../../core/theme';
@@ -19,7 +19,7 @@ const addFile = (props) => {
   const [open, setOpen] = useState(false);
   const [FileName, setFileName] = useState('');
   const [Link, setLink] = useState('');
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
   const state = {
     collection: props.collection,
     docId: props.docId,
@@ -27,11 +27,12 @@ const addFile = (props) => {
   };
 
   const handleSubmit = (e) => {
-    setAlert(true);
+    // setAlert(true);
     e.preventDefault();
     props.addNewFile(state);
     setFileName('');
     setLink('');
+    setOpen(false);
   };
 
   const handleClickOpen = () => {
@@ -40,10 +41,11 @@ const addFile = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+    // setAlert(false);
   };
-  const handleAlertClose = () => {
-    setAlert(false);
-  };
+  // const handleAlertClose = () => {
+  //   setAlert(false);
+  // };
 
   return (
     <>
@@ -61,18 +63,18 @@ const addFile = (props) => {
           เพิ่มไฟล์
         </Typography>
       </Button>
-      <Dialog open={open} onClose={handleAlertClose}>
-        <Snackbar
+      <Dialog open={open} onClose={handleClose}>
+        {/* <Snackbar
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
           key="bottomcenter"
           open={alert}
           autoHideDuration={5000}
-          onClose={handleClose}
+          // onClose={handleClose}
         >
           <Alert severity="success" sx={{ width: '100%' }}>
             อัพเดดข้อมูล............
           </Alert>
-        </Snackbar>
+        </Snackbar> */}
         <form onSubmit={handleSubmit}>
           <DialogTitle>เพิ่มไฟล์</DialogTitle>
           <DialogContent>
@@ -92,8 +94,12 @@ const addFile = (props) => {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type="submit">Post</Button>
+            <Button variant="contained" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="contained" type="submit">
+              Post
+            </Button>
           </DialogActions>
         </form>
       </Dialog>

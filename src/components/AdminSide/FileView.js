@@ -1,11 +1,37 @@
-import { Avatar, Box, Button, Card, CardHeader, Container, Grid, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  Container,
+  Grid,
+  TextField,
+  Typography
+} from '@mui/material';
 import theme from '../../core/theme';
 import AddFile from './AddFile';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import DeleteData from './DeleteData';
+import { useState } from 'react';
 
 const fileView = (props) => {
+  const [searchInput, setSearchInput] = useState('');
+
+  const inputHandler = (e) => {
+    var lowerCase = e.target.value.toLowerCase();
+    setSearchInput(lowerCase);
+  };
+
+  const filteredData = props.files.filter((el) => {
+    if (searchInput === '') {
+      return el;
+    } else {
+      return el.name.toLowerCase().includes(searchInput);
+    }
+  });
+
   return (
     <Box m="auto">
       <Container>
@@ -29,9 +55,23 @@ const fileView = (props) => {
         </Button>
         <AddFile collection={props.collection} docId={props.docId} />
         <Box m="auto">
+          <TextField
+            onChange={inputHandler}
+            label="ค้นหา......"
+            InputLabelProps={{
+              style: { color: theme.palette.primary.dark }
+            }}
+            sx={{
+              mx: 4,
+              mt: { xs: 2, md: 2 },
+              mb: { xs: 2, md: 0 },
+              width: 250,
+              borderRadius: 2
+            }}
+          />
           <Container sx={{ mx: 2, my: 4 }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {props.files.map((file, index) => (
+              {filteredData.map((file, index) => (
                 <Grid key={index} item xs={12} md={4}>
                   <Card sx={{ width: '275px', display: 'flex' }}>
                     <CardHeader
