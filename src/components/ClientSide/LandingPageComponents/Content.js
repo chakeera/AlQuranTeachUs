@@ -1,7 +1,6 @@
 import { Box, Skeleton } from '@mui/material';
 import './content.css';
 import Calendar from './Calendar';
-// import Image from '../../assets/images/600x400.jpg';
 import Category from './Category';
 import { useEffect, useState } from 'react';
 import { db } from '../../../firebase';
@@ -9,14 +8,12 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const gridTest = () => {
   const [url, setUrl] = useState('');
-  // const [filepath, setFilepath] = useState('');
 
   const getExistedImage = async () => {
     const docRef = doc(db, 'Images', 'customImage');
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUrl(docSnap.data().url);
-      // setFilepath(docSnap.data().filepath);
     } else {
       console.log('No such document!');
     }

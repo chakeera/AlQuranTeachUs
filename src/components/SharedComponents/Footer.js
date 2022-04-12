@@ -22,7 +22,7 @@ const footer = () => {
             }}
             color={'white'}
           >
-            อัลกุรอานสอนเรา อัลมุวาฮิด Al-Quran Teaches Us
+            อัลกุรอานสอนเราอัลมุวาฮิด Al-Quran Teaches Us
           </Typography>
           {isHomePage ? (
             <Button

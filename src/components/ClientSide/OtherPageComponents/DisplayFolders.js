@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { Box } from '@mui/system';
 import { Button, Container, Typography } from '@mui/material';
-// import FolderView from '../ManageData/FolderView';
 import FolderView from './FolderView';
 import FileView from './FileView';
 import theme from '../../../core/theme';

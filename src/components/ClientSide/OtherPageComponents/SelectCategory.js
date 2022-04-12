@@ -2,7 +2,6 @@ import { Box, Button, Typography } from '@mui/material';
 import Tafseer2 from '../../../assets/images/tafseer2.jpg';
 import Tafseer3 from '../../../assets/images/tafseer3.jpg';
 import Hadith from '../../../assets/images/hadith.png';
-import background from '../../../assets/images/background.png';
 import Other from '../../../assets/images/hanafeeother.jpg';
 import '../../../pages/pages.css';
 import Appbar from '../../SharedComponents/Appbar';
@@ -16,7 +15,7 @@ const selectCategory = () => {
   return (
     <>
       {scholar === 'hanafee' ? (
-        <Box style={styles.container}>
+        <Box className="outer-container">
           <Box sx={{ flexDirection: 'column' }}>
             <Appbar />
             <Box className="main-container">
@@ -53,7 +52,7 @@ const selectCategory = () => {
           </Box>
         </Box>
       ) : (
-        <Box style={styles.container}>
+        <Box className="outer-container">
           <Box sx={{ flexDirection: 'column' }}>
             <Appbar />
             <Box className="main-container">
@@ -92,19 +91,6 @@ const selectCategory = () => {
       )}
     </>
   );
-};
-
-const styles = {
-  container: {
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    minWidth: '100vw',
-    minHeight: '100vh',
-    width: '100%',
-    height: '100%',
-    backgroundAttachment: 'fixed'
-  }
 };
 
 export default selectCategory;

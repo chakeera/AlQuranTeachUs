@@ -8,9 +8,9 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import theme from '../../../core/theme';
-import background from '../../../assets/images/background.png';
 import { useState } from 'react';
 import './folderView.css';
+import '../../../pages/pages.css';
 
 const displaySingleFile = (props) => {
   var folder = [];
@@ -42,7 +42,7 @@ const displaySingleFile = (props) => {
 
   return (
     <>
-      <Box style={styles.container}>
+      <Box className="outer-container">
         <Box sx={{ flexDirection: 'column' }}>
           <Appbar />
           {folder.length === 0 ? (
@@ -140,19 +140,6 @@ const displaySingleFile = (props) => {
       </Box>
     </>
   );
-};
-
-const styles = {
-  container: {
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    minWidth: '100vw',
-    minHeight: '100vh',
-    width: '100%',
-    height: '100%',
-    backgroundAttachment: 'fixed'
-  }
 };
 
 const mapStateToProps = (state) => {

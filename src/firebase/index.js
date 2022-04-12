@@ -1,12 +1,10 @@
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-// import 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
 
-// import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,10 +20,6 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-// const analytics = getAnalytics(app);
-// initializeApp(firebaseConfig);
-// const db = getFirestore();
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 export const db = getFirestore(app);
