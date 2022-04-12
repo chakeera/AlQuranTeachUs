@@ -54,12 +54,12 @@ const category = () => {
       )}
       <Box className="category-container">
         <Box className="category-item">
-          <a href={fbLinkUrl}>
+          <a href={fbLinkUrl} target="_blank" rel="noreferrer">
             <img className="img" src={box1} />
           </a>
         </Box>
         <Box className="category-item">
-          <a href={mkLinkUrl}>
+          <a href={mkLinkUrl} target="_blank" rel="noreferrer">
             <img className="img" src={box1} />
           </a>
         </Box>
