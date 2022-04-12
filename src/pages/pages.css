@@ -68,3 +68,28 @@
     border-radius: 20px;
 }
 
+@media (max-width: 640px) {
+    .tafseer-grid-container{
+        grid-template-columns: 1fr;
+    }  
+    .grid-container{
+        grid-template-columns: 1fr ;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .select-category-grid-container{
+        grid-template-columns: 1fr ;
+    }
+    .tafseer-item{
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media (max-width: 770px) {
+    .grid-container{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+

@@ -19,7 +19,7 @@ const displayFolders = (props) => {
   var collection = props.scholar + props.category;
   var data = props.data[collection];
 
-  if (data !== null || data !== undefined) {
+  if (data != null || data != undefined) {
     folderName = [];
     Object.values(data).map((item) => {
       folderName.push(item.folderName);
