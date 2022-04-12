@@ -1,20 +1,16 @@
 import { ArrowBack } from '@mui/icons-material';
-import { Box, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import background from '../assets/images/background.png';
+import { Box, Button, Typography } from '@mui/material';
+import khutbahData from '../components/Data/KhutbahData';
 import Appbar from '../components/SharedComponents/Appbar';
 import Footer from '../components/SharedComponents/Footer';
 import theme from '../core/theme';
-import Jummah from '../assets/images/jummah1.jpg';
-import Jummah2 from '../assets/images/jummah2.jpg';
-import Jummah3 from '../assets/images/jummah3.png';
-import Jummah4 from '../assets/images/jummah4.jpg';
 import './pages.css';
 
 const khutbah = () => {
   return (
     <>
-      <Box style={styles.container}>
+      <Box className="outer-container">
         <Box sx={{ flexDirection: 'column' }}>
           <Appbar />
           <Box className="main-container">
@@ -44,30 +40,14 @@ const khutbah = () => {
               คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน
             </Typography>
             <Box className="grid-container">
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Hanafee">
-                  <img className="img" src={Jummah} />
-                </Link>
-                <Typography>โดย อ.ฮานาฟี อามีน</Typography>
-              </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Ashabulyameen">
-                  <img className="img" src={Jummah2} />
-                </Link>
-                <Typography>โดย อ.อัสฮาบุ้ลยามีน ปานนพภา</Typography>
-              </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Khalid">
-                  <img className="img" src={Jummah3} />
-                </Link>
-                <Typography>โดย อ.คอลิด อารีบี</Typography>
-              </Box>
-              <Box className="khutbah-item">
-                <Link to="/Khutbah/Other">
-                  <img className="img" src={Jummah4} />
-                </Link>
-                <Typography>คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน อื่นๆ</Typography>
-              </Box>
+              {khutbahData.map((data) => (
+                <Box key={data.name} className="khutbah-item">
+                  <Link to={data.link}>
+                    <img className="img" src={data.image} />
+                  </Link>
+                  <Typography sx={{ fontWeight: 'bold' }}>{data.name}</Typography>
+                </Box>
+              ))}
             </Box>
           </Box>
         </Box>
@@ -75,18 +55,5 @@ const khutbah = () => {
       </Box>
     </>
   );
-};
-
-const styles = {
-  container: {
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    minWidth: '100vw',
-    minHeight: '100vh',
-    width: '100%',
-    height: '100%',
-    backgroundAttachment: 'fixed'
-  }
 };
 export default khutbah;

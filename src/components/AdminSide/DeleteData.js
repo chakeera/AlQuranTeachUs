@@ -26,11 +26,9 @@ const deleteData = (props) => {
   const handleDelete = () => {
     if (props.type === 'folder') {
       props.deleteFolder({ docId: props.docId, collection: props.collection });
-      // console.log(props.collection, props.docId);
     }
     if (props.type === 'file') {
       props.deleteFile({ docId: props.docId, collection: props.collection, file: props.data });
-      // console.log(props.data);
     }
   };
 
@@ -46,11 +44,10 @@ const deleteData = (props) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{'ลบข้อมูล'}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            คุณกำลังจะลบข้อมูล หากกดตกลงแล้วข้อมูลไม่สามารถกู้กลับมาได้
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -81,4 +78,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(deleteData);
-// export default deleteFile;

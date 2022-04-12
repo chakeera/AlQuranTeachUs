@@ -13,7 +13,6 @@ import {
 import { useEffect, useState } from 'react';
 import theme from '../core/theme';
 import { useNavigate } from 'react-router-dom';
-// import { app } from '../firebase/index';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 
@@ -49,16 +48,6 @@ const login = () => {
       navigate('/manage');
     }
   }, []);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (email === process.env.REACT_APP_EMAIL && password === process.env.REACT_APP_PASSWORD) {
-  //     setIsError(false);
-  //     navigate('/manage', { replace: true });
-  //     console.log('pass');
-  //   } else {
-  //     setIsError(true);
-  //   }
-  // };
 
   return (
     <>

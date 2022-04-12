@@ -2,16 +2,16 @@ import { ArrowBack } from '@mui/icons-material';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
-import background from '../assets/images/background.png';
 import Appbar from '../components/SharedComponents/Appbar';
 import Footer from '../components/SharedComponents/Footer';
 import Facebook from '../assets/images/facebook.jpg';
 import theme from '../core/theme';
+import './pages.css';
 
 const facebook = () => {
   return (
     <>
-      <Box style={styles.container}>
+      <Box className="outer-container">
         <Box sx={{ flexDirection: 'column' }}>
           <Appbar />
           <Box className="main-container">
@@ -67,19 +67,6 @@ const facebook = () => {
       </Box>
     </>
   );
-};
-
-const styles = {
-  container: {
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    minWidth: '100vw',
-    minHeight: '100vh',
-    width: '100%',
-    height: '100%',
-    backgroundAttachment: 'fixed'
-  }
 };
 
 export default facebook;

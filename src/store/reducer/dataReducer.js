@@ -1,25 +1,5 @@
-const initState = {
-  // reduxTestDummyCollection: [
-  //   {
-  //     id: '1',
-  //     folderName: 'foldername1',
-  //     file: [
-  //       { id: '1', name: 'file1', link: 'link1' },
-  //       { id: '2', name: 'file2', link: 'link2' }
-  //     ]
-  //   },
-  //   {
-  //     id: '2',
-  //     folderName: 'foldername2',
-  //     file: [
-  //       { id: '1', name: 'file1', link: 'link1' },
-  //       { id: '2', name: 'file2', link: 'link2' },
-  //       { id: '3', name: 'file3', link: 'link3' }
-  //     ]
-  //   }
-  // ]
-};
-// eslint-disable-next-line no-unused-vars
+const initState = {};
+
 const addDataReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_DATA':

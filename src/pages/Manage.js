@@ -13,18 +13,13 @@ import {
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
-// import ManageTabs from '../components/AdminSide/ManageTabs';
 import AddExternalLinks from '../components/AdminSide/AddExternalLinks';
 import tabs from '../components/Data/TabsData';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
-// import { connect } from 'react-redux';
 
 const manage = () => {
-  const [page, setPage] = useState(
-    <AddExternalLinks />
-    // <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
-  );
+  const [page, setPage] = useState(<AddExternalLinks />);
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   useEffect(() => {
@@ -130,11 +125,5 @@ const manage = () => {
     </>
   );
 };
-
-// const mapStateToProps = () => {
-//   return {
-//     // data: state.firestore.data
-//   };
-// };
 
 export default manage;
