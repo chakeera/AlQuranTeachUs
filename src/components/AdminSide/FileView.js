@@ -10,14 +10,29 @@ import {
   Typography
 } from '@mui/material';
 import theme from '../../core/theme';
+import DeleteIcon from '@mui/icons-material/Delete';
 import AddFile from './AddFile';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import DeleteData from './DeleteData';
 import { useState } from 'react';
+import { connect } from 'react-redux';
+import { deleteFolder } from '../../store/action/databaseAction';
 
 const fileView = (props) => {
   const [searchInput, setSearchInput] = useState('');
+  let isEmpty = false;
+
+  const deleteFolder = () => {
+    props.deleteFolder({ docId: props.docId, collection: props.collection });
+    props.setFolderClick(false);
+  };
+
+  console.log(props.docId);
+
+  if (props.files.length === 0) {
+    isEmpty = true;
+  }
 
   const inputHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
@@ -54,6 +69,26 @@ const fileView = (props) => {
           </Typography>
         </Button>
         <AddFile collection={props.collection} docId={props.docId} />
+        {isEmpty && (
+          <Button
+            sx={{ mt: 6, mx: 2, mb: 2, color: 'red' }}
+            variant="outlined"
+            onClick={deleteFolder}
+          >
+            <DeleteIcon />
+            <Typography
+              sx={{
+                mx: 1,
+                textAlign: 'center',
+                color: theme.palette.primary.dark,
+                fontWeight: 'bolder',
+                fontSize: 18
+              }}
+            >
+              ลบทั้งโฟลเดอร์
+            </Typography>
+          </Button>
+        )}
         <Box m="auto">
           <TextField
             onChange={inputHandler}
@@ -114,4 +149,11 @@ const fileView = (props) => {
   );
 };
 
-export default fileView;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteFolder: (data) => dispatch(deleteFolder(data))
+    // deleteFile: (data) => dispatch(deleteFile(data))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(fileView);

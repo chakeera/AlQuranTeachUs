@@ -21,8 +21,10 @@ const displayFolders = (props) => {
   if (data != null || data != undefined) {
     folderName = [];
     Object.values(data).map((item) => {
-      folderName.push(item.folderName);
-      files.push(item.files);
+      if (item != null) {
+        folderName.push(item.folderName);
+        files.push(item.files);
+      }
     });
     docId = [];
     Object.keys(data).map((key) => docId.push(key));

@@ -9,7 +9,7 @@ import DisplaySingleFile from './DisplaySingleFile';
 import AddImage from './AddImage';
 
 const ManageTabs = (props) => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(1);
 
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
