@@ -81,7 +81,7 @@ const selectCategory = () => {
                   <Link to="/Talk/Ashabulyameen">
                     <img className="img" src={Hadith} />
                   </Link>
-                  <Typography>ฮะดีษ สอนใจ โดยอ.อัสฮาบุ้ลยามีน ปานนพภา</Typography>
+                  <Typography>ฮะดีษ สอนใจ โดย อ.อัสฮาบุ้ลยามีน ปานนพภา</Typography>
                 </Box>
               </Box>
             </Box>
