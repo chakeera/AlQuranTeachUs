@@ -7,7 +7,7 @@ import './pages.css';
 
 const Home = () => (
   <>
-    <Box className="outer-container">
+    <Box className="grid-outer-container">
       <Box sx={{ flexDirection: 'column' }}>
         <Appbar></Appbar>
         <Content></Content>

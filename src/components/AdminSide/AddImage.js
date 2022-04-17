@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  LinearProgress,
-  Toolbar,
-  Typography
-} from '@mui/material';
+import { Box, Button, CircularProgress, Toolbar, Typography } from '@mui/material';
 import { getDownloadURL, ref, uploadBytesResumable, deleteObject } from 'firebase/storage';
 import { useEffect, useState } from 'react';
 import theme from '../../core/theme';
@@ -88,19 +80,21 @@ const addCustomImage = (props) => {
         <Box mx="auto">
           <Toolbar />
           {props.photoType === 'customImage' ? (
-            <Typography>รูปภาพมุมขวา</Typography>
+            <Box>
+              <Typography sx={{ my: 4 }}>รูปภาพ 1</Typography>
+              <Typography sx={{ fontWeight: 'bold', my: 4 }}>
+                จำกัดขนาดภาพ กว้าง 600 px สูง 400px
+              </Typography>
+            </Box>
           ) : (
-            <Typography>รูปภาพข่าวสาร</Typography>
+            <Box>
+              <Typography sx={{ my: 4 }}>รูปภาพ 2</Typography>
+              <Typography sx={{ fontWeight: 'bold', my: 4 }}>
+                จำกัดขนาดภาพ กว้าง 800 px สูง 200px
+              </Typography>
+            </Box>
           )}
           <Typography></Typography>
-          <Grid my={2} alignItems="center" spacing={6} container direction="row">
-            <Grid sx={{ color: '#5CFF5C' }} xs item>
-              <LinearProgress color="inherit" value={progress} variant="determinate" />
-            </Grid>
-            <Grid xs item>
-              <Typography>{progress} % </Typography>
-            </Grid>
-          </Grid>
           <form onSubmit={formHandler}>
             <input type="file" className="input"></input>
             <Button type="submit" variant="contained">
@@ -122,6 +116,9 @@ const addCustomImage = (props) => {
               Delete Existed Image
             </Button>
           </form>
+          <Typography sx={{ my: 4 }} size={20}>
+            {progress} %
+          </Typography>
           {url !== '' ? <Box my={4} component="img" src={url} /> : null}
           <Toolbar />
         </Box>

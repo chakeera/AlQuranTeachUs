@@ -9,7 +9,10 @@ const footer = () => {
   }
   return (
     <>
-      <AppBar position="static" sx={{ top: 'auto', bottom: 0, background: 'transparent' }}>
+      <AppBar
+        position="static"
+        sx={{ maxHeight: '100px', top: 'auto', bottom: 0, background: 'transparent' }}
+      >
         <Toolbar>
           <Typography
             sx={{

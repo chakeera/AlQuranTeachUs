@@ -31,7 +31,7 @@ const ManageTabs = (props) => {
               aria-label="full width tabs example"
             >
               <Tab label="รูปภาพ 1" />
-              <Tab label="รูปข่าวสาร" />
+              <Tab label="รูปภาพ 2" />
             </Tabs>
           ) : (
             <Tabs

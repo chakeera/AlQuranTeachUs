@@ -1,7 +1,7 @@
 import { ArrowBack } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
-import khutbahData from '../components/Data/KhutbahData';
+import { khutbahData } from '../components/Data/Data';
 import Appbar from '../components/SharedComponents/Appbar';
 import Footer from '../components/SharedComponents/Footer';
 import theme from '../core/theme';

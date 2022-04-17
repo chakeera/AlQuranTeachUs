@@ -14,7 +14,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import theme from '../core/theme';
 import AddExternalLinks from '../components/AdminSide/AddExternalLinks';
-import tabs from '../components/Data/TabsData';
+import { tabs } from '../components/Data/Data';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 
