@@ -7,8 +7,8 @@ import AddExternalLinks from '../AdminSide/AddExternalLinks';
 import Tafseer1 from '../../assets/images/tafseer1.jpg';
 import Tafseer2 from '../../assets/images/tafseer2.jpg';
 import Tafseer3 from '../../assets/images/tafseer3.jpg';
-import Facebook from '../../assets/images/facebook.jpg';
-import Youtube from '../../assets/images/youtube.jpg';
+import Facebook from '../../assets/images/facebook.png';
+import Youtube from '../../assets/images/youtube.png';
 
 export const khutbahData = [
   { link: '/Khutbah/Hanafee', image: Jummah, name: 'โดย อ.ฮานาฟี อามีน' },

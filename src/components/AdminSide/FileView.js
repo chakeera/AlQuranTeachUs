@@ -131,7 +131,12 @@ const fileView = (props) => {
                         </Avatar>
                       }
                       title={
-                        <Button href={file.link} sx={{ color: 'white', textAlign: 'left' }}>
+                        <Button
+                          onClick={() => {
+                            window.open(file.link, '_blank');
+                          }}
+                          sx={{ color: 'white', textAlign: 'left' }}
+                        >
                           <Typography sx={{ width: 150 }} noWrap color={theme.palette.primary.dark}>
                             {file.name}
                           </Typography>
