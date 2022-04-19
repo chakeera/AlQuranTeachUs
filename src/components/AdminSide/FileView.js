@@ -27,9 +27,6 @@ const fileView = (props) => {
     props.deleteFolder({ docId: props.docId, collection: props.collection });
     props.setFolderClick(false);
   };
-
-  console.log(props.docId);
-
   if (props.files.length === 0) {
     isEmpty = true;
   }
