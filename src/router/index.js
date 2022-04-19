@@ -1,11 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.js';
-// import Tafseer from '../pages/Tafseer.js';
 import Pages from '../pages/Pages.js';
 import Khutbah from '../pages/Khutbah.js';
 import Manage from '../pages/Manage.js';
-// import Facebook from '../pages/Facebook.js';
-// import Youtube from '../pages/Youtube.js';
 import Login from '../pages/Login.js';
 import Content from '../components/ClientSide/OtherPageComponents/ContentPage';
 import SelectCategory from '../components/ClientSide/OtherPageComponents/SelectCategory.js';

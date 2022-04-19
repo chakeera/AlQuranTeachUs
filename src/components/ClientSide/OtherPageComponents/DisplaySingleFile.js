@@ -1,140 +1,105 @@
 import { ArrowBack } from '@mui/icons-material';
-import { Avatar, Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Grid, Typography } from '@mui/material';
 import Appbar from '../../../components/SharedComponents/Appbar';
 import Footer from '../../../components/SharedComponents/Footer';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import { Box } from '@mui/system';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
 import theme from '../../../core/theme';
-import { useState } from 'react';
 import './folderView.css';
 import '../../../pages/pages.css';
+import { collection, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { db } from '../../../firebase';
 
 const displaySingleFile = (props) => {
-  var folder = [];
-  var docId = [];
-  var collection = props.category;
-  var data = props.data[collection];
-  if (data != (null || undefined)) {
-    folder = [];
-    Object.values(data).map((item) => {
-      folder.push(item);
-    });
-    docId = [];
-    Object.keys(data).map((key) => docId.push(key));
-  }
-
-  const [searchInput, setSearchInput] = useState('');
-  const inputHandler = (e) => {
-    var lowerCase = e.target.value.toLowerCase();
-    setSearchInput(lowerCase);
+  const [folderData, setFolderData] = useState([{ fileName: 'Loading' }]);
+  const [lastDoc, setLastDoc] = useState();
+  const getData = async () => {
+    const limitQuery = query(collection(db, props.category), orderBy('fileName', 'asc'), limit(3));
+    const snapshot = await getDocs(limitQuery);
+    const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setFolderData(data);
   };
 
-  const filteredData = folder.filter((el) => {
-    if (searchInput === '') {
-      return el;
-    } else {
-      return el.fileName.toLowerCase().includes(searchInput);
-    }
-  });
+  const fetchMore = async () => {
+    const limitQuery = query(
+      collection(db, props.scholar + props.category),
+      limit(12),
+      orderBy('fileName', 'asc'),
+      startAfter(lastDoc)
+    );
+    const snapshot = await getDocs(limitQuery);
+    const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const prevDoc = snapshot.docs[snapshot.docs.length - 1];
+    setLastDoc(prevDoc);
+    setFolderData((folderData) => [...folderData, ...data]);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
       <Box className="outer-container">
         <Box sx={{ flexDirection: 'column' }}>
           <Appbar />
-          {folder.length === 0 ? (
-            <Box height="80vh" sx={{ background: 'rgba(190, 212, 186,0.7)' }}>
-              <Button
-                href="/"
-                sx={{
-                  mx: 2,
-                  mt: { xs: 2, md: 4 },
-                  mb: { xs: 2, md: 0 },
-                  color: theme.palette.primary.dark,
-                  fontWeight: 'bolder',
-                  fontSize: 18
-                }}
-                variant="text"
-              >
-                <ArrowBack></ArrowBack>กลับหน้าหลัก
-              </Button>
-              <Box m="auto">
-                <Container>
-                  <Typography align="center">ไม่ผบข้อมูล</Typography>
-                </Container>
-              </Box>
-            </Box>
-          ) : (
-            <Box className="folder-view-container">
-              <Grid
-                container
-                justifyContent="space-between"
-                alignContent="center"
-                alignItems="center"
-                direction="row"
-              >
-                <Grid item>
-                  <Button
-                    href="/"
-                    sx={{
-                      mx: 2,
-                      mt: { xs: 2, md: 4 },
-                      mb: { xs: 2, md: 0 },
-                      color: theme.palette.primary.dark,
-                      fontWeight: 'bolder',
-                      fontSize: 18
-                    }}
-                    variant="text"
-                  >
-                    <ArrowBack></ArrowBack>กลับหน้าหลัก
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <TextField
-                    onChange={inputHandler}
-                    label="ค้นหา......"
-                    InputLabelProps={{
-                      style: { color: theme.palette.primary.dark }
-                    }}
-                    sx={{
-                      mx: 2,
-                      mt: { xs: 2, md: 2 },
-                      mb: { xs: 2, md: 0 },
-                      backgroundColor: 'white',
-                      borderRadius: 1
-                    }}
-                  />
-                </Grid>
+          <Box className="folder-view-container">
+            <Grid
+              container
+              justifyContent="space-between"
+              alignContent="center"
+              alignItems="center"
+              direction="row"
+            >
+              <Grid item>
+                <Button
+                  href="/"
+                  sx={{
+                    mx: 2,
+                    mt: { xs: 2, md: 4 },
+                    mb: { xs: 2, md: 0 },
+                    color: theme.palette.primary.dark,
+                    fontWeight: 'bolder',
+                    fontSize: 18
+                  }}
+                  variant="text"
+                >
+                  <ArrowBack></ArrowBack>กลับหน้าหลัก
+                </Button>
               </Grid>
-              <Box className="folder-view-grid-container">
-                {filteredData.map((folder, index) => (
-                  <Button
-                    key={index}
-                    variant="contained"
-                    className="folder-view-item"
-                    href={folder.link}
-                    startIcon={
-                      <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
-                        <InsertDriveFileIcon />
-                      </Avatar>
-                    }
-                    sx={{
-                      justifyContent: 'start',
-                      bgcolor: 'white',
-                      '&:hover': { backgroundColor: 'white' }
-                    }}
-                  >
-                    <Typography noWrap textOverflow="ellipsis">
-                      {folder.fileName}
-                    </Typography>
-                  </Button>
-                ))}
-              </Box>
+            </Grid>
+            <Box className="folder-view-grid-container">
+              {folderData.map((folder, index) => (
+                <Button
+                  key={index}
+                  variant="contained"
+                  className="folder-view-item"
+                  href={folder.link}
+                  startIcon={
+                    <Avatar sx={{ bgcolor: theme.palette.primary.dark }}>
+                      <InsertDriveFileIcon />
+                    </Avatar>
+                  }
+                  sx={{
+                    justifyContent: 'start',
+                    bgcolor: 'white',
+                    '&:hover': { backgroundColor: 'white' }
+                  }}
+                >
+                  <Typography noWrap textOverflow="ellipsis">
+                    {folder.fileName}
+                  </Typography>
+                </Button>
+              ))}
             </Box>
-          )}
+            <Box sx={{ px: 2, py: 2 }}>
+              <Button onClick={fetchMore} variant="contained" fullWidth>
+                <Typography sx={{ fontWeight: 'bold' }}> โหลดเพิ่ม... </Typography>
+              </Button>
+            </Box>
+          </Box>
+
           <Footer />
         </Box>
       </Box>
@@ -142,13 +107,4 @@ const displaySingleFile = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.firestore.data
-  };
-};
-
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect((props) => [props.category])
-)(displaySingleFile);
+export default displaySingleFile;

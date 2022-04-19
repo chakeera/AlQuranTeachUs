@@ -4,22 +4,8 @@ import theme from '../../../core/theme';
 import './folderView.css';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
-import { useState } from 'react';
 
 const contentFileView = (props) => {
-  const [searchInput, setSearchInput] = useState('');
-  const inputHandler = (e) => {
-    var lowerCase = e.target.value.toLowerCase();
-    setSearchInput(lowerCase);
-  };
-
-  const filteredData = props.files.filter((el) => {
-    if (searchInput === '') {
-      return el;
-    } else {
-      return el.name.toLowerCase().includes(searchInput);
-    }
-  });
   return (
     <>
       <Box className="folder-view-container">
@@ -48,7 +34,7 @@ const contentFileView = (props) => {
           </Grid>
           <Grid item>
             <TextField
-              onChange={inputHandler}
+              // onChange={inputHandler}
               label="ค้นหา......"
               InputLabelProps={{
                 style: { color: theme.palette.primary.dark }
@@ -64,9 +50,9 @@ const contentFileView = (props) => {
           </Grid>
         </Grid>
         <Box className="folder-view-grid-container">
-          {filteredData.map((file, index) => (
+          {props.files.map((file) => (
             <Button
-              key={index}
+              key={file.name}
               variant="contained"
               className="folder-view-item"
               onClick={() => {
