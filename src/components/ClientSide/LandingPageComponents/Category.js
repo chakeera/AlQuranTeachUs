@@ -1,9 +1,13 @@
 import { Box, Skeleton, Typography } from '@mui/material';
 import './category.css';
-import box1 from '../../../assets/images/200x200.jpg';
 import Youtube from '../../../assets/images/youtube.png';
+import Talk from '../../../assets/images/talk.png';
+import Quran from '../../../assets/images/quran.png';
+import Khutbah from '../../../assets/images/khutbah.png';
+import FacebookLive from '../../../assets/images/facebooklive.png';
+import MakkahLive from '../../../assets/images/makkahlive.png';
 import Facebook from '../../../assets/images/facebook.png';
-import Tafseer from '../../../assets/images/tafseer.png';
+import Doc from '../../../assets/images/doc.png';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from '../../../firebase';
@@ -58,53 +62,115 @@ const category = () => {
       <Box className="category-container">
         <Box className="category-item">
           <a href={fbLinkUrl} target="_blank" rel="noreferrer">
-            <img className="img" src={box1} />
+            <img className="img" src={FacebookLive} />
           </a>
-          <Typography sx={{ textAlign: 'center' }}>Live สด</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '0.9vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            คุตบะห์วันศุกร์-บรรยาย Live สด
+          </Typography>
         </Box>
         <Box className="category-item">
           <a href={mkLinkUrl} target="_blank" rel="noreferrer">
-            <img className="img" src={box1} />
+            <img className="img" src={MakkahLive} />
           </a>
-          <Typography sx={{ textAlign: 'center' }}>Live สดจากมักกะฮ์</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            Makkah Live สด
+          </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/Khutbah">
-            <img className="img" src={box1} />
+            <img className="img" src={Khutbah} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน
+          </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/TafseerTalk">
-            <img className="img" src={Tafseer} />
+            <img className="img" src={Talk} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>บรรยาย ตัฟซีรอัลกุรอาน</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            บรรยาย-ตัฟซีรอัลกุรอาน
+          </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/Facebook">
             <img className="img" src={Facebook} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>Facebook ตัฟซีรอัลกุรอาน</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            Facebook ตัฟซีรอัลกุรอาน
+          </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/Youtube">
             <img className="img" src={Youtube} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>YouTube ตัฟซีรอัลกุรอาน</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            YouTube ตัฟซีรอัลกุรอาน
+          </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/Quran">
-            <img className="img" src={box1} />
+            <img className="img" src={Quran} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>
-            หนังสืออัลกุรอาน & MP3 อัลกุรอานเพราะๆ
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            อัลกุรอานเพราะๆ
           </Typography>
         </Box>
         <Box className="category-item">
           <Link to="/Evidence">
-            <img className="img" src={box1} />
+            <img className="img" src={Doc} />
           </Link>
-          <Typography sx={{ textAlign: 'center' }}>หลักฐานอื่นๆ</Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontWeight: 'bold'
+            }}
+          >
+            เอกสารและหลักฐานอื่นๆ
+          </Typography>
         </Box>
       </Box>
     </>

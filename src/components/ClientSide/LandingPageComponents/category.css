@@ -10,10 +10,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
     justify-items: center;
+    align-items: start;
 }
 
 .category-item {
-    align-content: center;
     display: grid;
     color: rgb(0, 0, 0);
     border-radius: 20px;
