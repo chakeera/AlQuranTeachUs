@@ -1,4 +1,4 @@
-import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import theme from '../../../core/theme';
 import './folderView.css';
@@ -31,22 +31,6 @@ const contentFileView = (props) => {
             >
               <ArrowBack></ArrowBack>กลับ
             </Button>
-          </Grid>
-          <Grid item>
-            <TextField
-              // onChange={inputHandler}
-              label="ค้นหา......"
-              InputLabelProps={{
-                style: { color: theme.palette.primary.dark }
-              }}
-              sx={{
-                mx: 2,
-                mt: { xs: 2, md: 2 },
-                mb: { xs: 2, md: 0 },
-                backgroundColor: 'white',
-                borderRadius: 1
-              }}
-            />
           </Grid>
         </Grid>
         <Box className="folder-view-grid-container">
