@@ -67,7 +67,7 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '0.9vw' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
               fontWeight: 'bold'
             }}
           >
@@ -81,7 +81,7 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '0.9vw' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
               fontWeight: 'bold'
             }}
           >
@@ -95,7 +95,7 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '0.9' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
               fontWeight: 'bold'
             }}
           >
@@ -104,7 +104,7 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '0.9' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
               fontWeight: 'bold'
             }}
           >
