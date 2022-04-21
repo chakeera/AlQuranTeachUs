@@ -81,7 +81,7 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '0.9vw' },
               fontWeight: 'bold'
             }}
           >
@@ -95,11 +95,20 @@ const category = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '3vw', sm: '1vw', md: '1vw' },
+              fontSize: { xs: '3vw', sm: '1vw', md: '0.9' },
               fontWeight: 'bold'
             }}
           >
-            คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน
+            คุตบะห์วันศุกร์ตัฟซีร
+          </Typography>
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontSize: { xs: '3vw', sm: '1vw', md: '0.9' },
+              fontWeight: 'bold'
+            }}
+          >
+            อัลกุรอาน
           </Typography>
         </Box>
         <Box className="category-item">
