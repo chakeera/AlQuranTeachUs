@@ -48,29 +48,29 @@ export const tafseerData = [
 ];
 
 export const tabs = [
-  { title: 'External Link', page: <AddExternalLinks /> },
+  { title: 'ลิงค์ไลฟ์สด', page: <AddExternalLinks /> },
   {
-    title: 'Images',
+    title: 'รูปภาพ',
     page: <ManageTabs value="Images" title="รูปภาพ" />
   },
   {
-    title: 'Khutbah',
+    title: 'คุตบะห์วันศุกร์ตัฟซีรอัลกุรอาน',
     page: <ManageTabs value="Khutbah" title="คุตบะห์วันศุกร์ ตัฟซีรอัลกุรอาน" />
   },
   {
-    title: 'Tafseer',
+    title: 'บรรยาย-ตัฟซีรอัลกุรอาน',
     page: <ManageTabs value="Tafseer" title="บรรยาย ตัฟซีรอัลกุรอาน" />
   },
   {
-    title: 'Facebook',
+    title: 'Facebook ตัฟซีรอัลกุรอาน',
     page: <ManageTabs value="Facebook" title="Facebook ตัฟซีรอัลกุรอาน" />
   },
   {
-    title: 'Youtube',
+    title: 'YouTube ตัฟซีรอัลกุรอาน',
     page: <ManageTabs value="Youtube" title="Youtube ตัฟซีรอัลกุรอาน" />
   },
   {
-    title: 'Quran',
+    title: 'อัลกุรอานเพราะๆ',
     page: (
       <ManageTabs
         value="Quran"
@@ -80,7 +80,7 @@ export const tabs = [
     )
   },
   {
-    title: 'Evidence',
+    title: 'เอกสารและหลักฐานอื่นๆ',
     page: <ManageTabs value="Evidence" title="หลักฐานอื่นๆ" />
   }
 ];

@@ -42,7 +42,7 @@ const externalLink = (props) => {
   return (
     <>
       <Typography sx={{ my: 2, fontWeight: 'bold' }} variant="h6" textAlign="center">
-        ลิงค์ไลฟ์สด
+        คุตบะห์วันศุกร์-บรรยาย Live สด
       </Typography>
       <Box>
         <AppBar elevation={0} position="static">
@@ -73,7 +73,7 @@ const externalLink = (props) => {
           </Snackbar>
           <form onSubmit={handleFacebookSubmit}>
             <FormControl fullWidth>
-              <Typography>ไลฟ์สด Facebook</Typography>
+              <Typography>คุตบะห์วันศุกร์-บรรยาย Live สด</Typography>
               <TextField
                 sx={{ mt: 2, width: 350, backgroundColor: 'white', borderRadius: 1 }}
                 value={facebookLink}
@@ -93,7 +93,7 @@ const externalLink = (props) => {
           </form>
           <form onSubmit={handleMakkahSubmit}>
             <FormControl>
-              <Typography>ไลฟ์สด Makkah</Typography>
+              <Typography>Makkah Live สด</Typography>
               <TextField
                 sx={{ mt: 2, width: 350, backgroundColor: 'white', borderRadius: 1 }}
                 value={makkahLink}
