@@ -1,0 +1,31 @@
+.folder-view-container{
+    background-color: rgba(190, 212, 186,0.7);
+    height: 80vh;
+    overflow: scroll;
+}
+.folder-view-grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 50px;
+    gap: 10px;
+}
+
+.folder-view-item {
+    background: rgb(255, 252, 252);
+    font-size: 20px;
+    border-radius: 20px;
+    max-width: 300px;
+    height: 80px;
+}
+
+@media (max-width: 640px) {
+    .folder-view-grid-container{
+        grid-template-columns: 1fr;
+        padding: 50px;
+        gap: 10px;
+    }
+
+    .item {
+        max-width: 150px;
+    }   
+}

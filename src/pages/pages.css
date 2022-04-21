@@ -1,0 +1,110 @@
+.outer-container{
+    background-image: url("../assets/images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+.grid-outer-container{
+    display: grid;
+    grid-template-rows: 20% auto 10%;
+    background-image: url("../assets/images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+.main-container{
+    background:rgba(190, 212, 186,0.7);
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    /* padding-left: 300px;
+    padding-right: 300px; */
+}
+
+.tafseer-grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.select-category-grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    /* gap: 10px; */
+    /* padding-top: 40px;
+    padding-bottom: 100px; */
+}
+
+.khutbah-item{
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    max-width: 250px;
+    height: auto;
+}
+
+.tafseer-item{
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    max-width: 350px;
+    height: auto;
+}
+
+.img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+@media (max-width: 640px) {
+    .tafseer-grid-container{
+        grid-template-columns: 1fr;
+    }  
+    .grid-container{
+        grid-template-columns: 1fr ;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .select-category-grid-container{
+        grid-template-columns: 1fr ;
+    }
+    .tafseer-item{
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media (max-width: 770px) {
+    .grid-container{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .grid-outer-container{
+        display:block;
+    }
+}
+

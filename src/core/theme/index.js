@@ -1,18 +1,27 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536
+    }
+  },
   shape: {
     borderRadius: 15
   },
   palette: {
     primary: {
-      main: '#CCD5AE',
+      main: '#BED4BA',
       dark: '#45503B',
       light: '#FAEDCD'
     },
     secondary: {
-      main: '#D4A373',
-      light: '#FEFAE0',
+      main: '#FEFAE0',
+      light: '##D4A373',
       dark: '#FAEDCD'
     }
   }
