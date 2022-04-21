@@ -105,6 +105,18 @@ const manage = () => {
                   />
                 </ListItem>
               ))}
+              <ListItem
+                sx={{ borderBottom: 1, borderColor: 'white' }}
+                onClick={() => navigate('/')}
+                button
+              >
+                <ListItemText
+                  sx={{
+                    color: 'white'
+                  }}
+                  primary="กลับหน้าหลัก"
+                />
+              </ListItem>
               <ListItem sx={{ borderBottom: 1, borderColor: 'white' }} onClick={logout} button>
                 <ListItemText
                   sx={{
